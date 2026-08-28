@@ -1,61 +1,59 @@
 from flask import Flask, request, redirect, session, render_template, send_from_directory, url_for
-import mysql.connector
+import psycopg
 import os
 
-app = Flask(
-    __name__,
-    template_folder="../frontend"
-)
-# Secret key
+app = Flask(__name__)
+
 app.secret_key = os.getenv(
     "SECRET_KEY",
     "capacity_connect_secret_key"
 )
 
 
-# =====================================================
+# =========================
 # DATABASE CONNECTION
-# =====================================================
+# =========================
 
 def get_db_connection():
-    return mysql.connector.connect(
-        host=os.getenv("DB_HOST", "localhost"),
-        user=os.getenv("DB_USER", "root"),
-        password=os.getenv("DB_PASSWORD", ""),
-        database=os.getenv("DB_NAME", "capacity_connect"),
-        port=int(os.getenv("DB_PORT", "3306"))
+    return psycopg.connect(
+        host=os.getenv("DB_HOST"),
+        port=os.getenv("DB_PORT", "5432"),
+        dbname=os.getenv("DB_NAME"),
+        user=os.getenv("DB_USER"),
+        password=os.getenv("DB_PASSWORD"),
+        sslmode="require"
     )
 
 
-# =====================================================
+# =========================
 # HOME
-# =====================================================
+# =========================
 
 @app.route("/")
 def home():
     return render_template("index.html")
 
-# =====================================================
+
+# =========================
 # TEST DATABASE
-# =====================================================
+# =========================
 
 @app.route("/test-db")
 def test_db():
 
     try:
         db = get_db_connection()
+        db.close()
 
-        if db.is_connected():
-            db.close()
-            return "Database Connected Successfully!"
+        return "Database Connected Successfully!"
 
-    except mysql.connector.Error as err:
+    except Exception as err:
         return f"Database Connection Failed: {err}"
 
 
-# =====================================================
+# =========================
 # REGISTER
-# =====================================================
+# =========================
 
 @app.route("/register", methods=["POST"])
 def register():
@@ -65,15 +63,18 @@ def register():
     password = request.form["password"]
 
     try:
+
         db = get_db_connection()
+
         cursor = db.cursor()
 
-        sql = """
-        INSERT INTO users (name, email, password)
-        VALUES (%s, %s, %s)
-        """
-
-        cursor.execute(sql, (name, email, password))
+        cursor.execute(
+            """
+            INSERT INTO users (name, email, password)
+            VALUES (%s, %s, %s)
+            """,
+            (name, email, password)
+        )
 
         db.commit()
 
@@ -82,13 +83,14 @@ def register():
 
         return "Registration Successful!"
 
-    except mysql.connector.Error as err:
+    except Exception as err:
+
         return f"Registration Failed: {err}"
 
 
-# =====================================================
+# =========================
 # LOGIN
-# =====================================================
+# =========================
 
 @app.route("/login", methods=["POST"])
 def login():
@@ -97,15 +99,19 @@ def login():
     password = request.form["password"]
 
     try:
+
         db = get_db_connection()
+
         cursor = db.cursor()
 
-        sql = """
-        SELECT * FROM users
-        WHERE email = %s AND password = %s
-        """
-
-        cursor.execute(sql, (email, password))
+        cursor.execute(
+            """
+            SELECT id, name, email
+            FROM users
+            WHERE email = %s AND password = %s
+            """,
+            (email, password)
+        )
 
         user = cursor.fetchone()
 
@@ -120,16 +126,16 @@ def login():
 
             return redirect(url_for("dashboard"))
 
-        else:
-            return "Invalid Email or Password!"
+        return "Invalid Email or Password!"
 
-    except mysql.connector.Error as err:
+    except Exception as err:
+
         return f"Login Failed: {err}"
 
 
-# =====================================================
+# =========================
 # DASHBOARD
-# =====================================================
+# =========================
 
 @app.route("/dashboard")
 def dashboard():
@@ -140,9 +146,9 @@ def dashboard():
     return render_template("dashboard.html")
 
 
-# =====================================================
-# ADMIN DASHBOARD
-# =====================================================
+# =========================
+# ADMIN
+# =========================
 
 @app.route("/admin")
 def admin():
@@ -153,21 +159,18 @@ def admin():
     try:
 
         db = get_db_connection()
+
         cursor = db.cursor()
 
-        # Registered Users Count
         cursor.execute("SELECT COUNT(*) FROM users")
+
         user_count = cursor.fetchone()[0]
 
-        # Registered Users Information
-        cursor.execute("SELECT id, name, email FROM users")
+        cursor.execute(
+            "SELECT id, name, email FROM users"
+        )
+
         users = cursor.fetchall()
-
-        # Total Courses
-        course_count = 4
-
-        # Total Certificates
-        certificate_count = 4
 
         cursor.close()
         db.close()
@@ -176,17 +179,18 @@ def admin():
             "admin.html",
             user_count=user_count,
             users=users,
-            course_count=course_count,
-            certificate_count=certificate_count
+            course_count=4,
+            certificate_count=4
         )
 
-    except mysql.connector.Error as err:
+    except Exception as err:
+
         return f"Admin Database Error: {err}"
 
 
-# =====================================================
+# =========================
 # DELETE USER
-# =====================================================
+# =========================
 
 @app.route("/delete-user/<int:user_id>")
 def delete_user(user_id):
@@ -197,6 +201,7 @@ def delete_user(user_id):
     try:
 
         db = get_db_connection()
+
         cursor = db.cursor()
 
         cursor.execute(
@@ -211,13 +216,14 @@ def delete_user(user_id):
 
         return redirect(url_for("admin"))
 
-    except mysql.connector.Error as err:
+    except Exception as err:
+
         return f"Delete User Failed: {err}"
 
 
-# =====================================================
+# =========================
 # COURSES
-# =====================================================
+# =========================
 
 @app.route("/courses")
 def courses():
@@ -228,9 +234,9 @@ def courses():
     return render_template("courses.html")
 
 
-# =====================================================
+# =========================
 # PROGRESS
-# =====================================================
+# =========================
 
 @app.route("/progress")
 def progress():
@@ -241,9 +247,9 @@ def progress():
     return render_template("progress.html")
 
 
-# =====================================================
+# =========================
 # LEARNING GOALS
-# =====================================================
+# =========================
 
 @app.route("/learning-goals")
 def learning_goals():
@@ -254,9 +260,9 @@ def learning_goals():
     return render_template("learning-goals.html")
 
 
-# =====================================================
+# =========================
 # CERTIFICATES
-# =====================================================
+# =========================
 
 @app.route("/certificates")
 def certificates():
@@ -270,19 +276,21 @@ def certificates():
     )
 
 
-# =====================================================
+# =========================
 # VERIFY CERTIFICATE
-# =====================================================
+# =========================
 
 @app.route("/verify-certificate")
 def verify_certificate():
 
-    return render_template("verify-certificate.html")
+    return render_template(
+        "verify-certificate.html"
+    )
 
 
-# =====================================================
+# =========================
 # PYTHON CERTIFICATE
-# =====================================================
+# =========================
 
 @app.route("/download-certificate")
 def download_certificate():
@@ -297,9 +305,9 @@ def download_certificate():
     )
 
 
-# =====================================================
+# =========================
 # JAVA CERTIFICATE
-# =====================================================
+# =========================
 
 @app.route("/download-java-certificate")
 def download_java_certificate():
@@ -314,9 +322,9 @@ def download_java_certificate():
     )
 
 
-# =====================================================
+# =========================
 # WEB CERTIFICATE
-# =====================================================
+# =========================
 
 @app.route("/download-web-certificate")
 def download_web_certificate():
@@ -331,9 +339,9 @@ def download_web_certificate():
     )
 
 
-# =====================================================
+# =========================
 # DATA CERTIFICATE
-# =====================================================
+# =========================
 
 @app.route("/download-data-certificate")
 def download_data_certificate():
@@ -348,9 +356,9 @@ def download_data_certificate():
     )
 
 
-# =====================================================
+# =========================
 # PYTHON COURSE
-# =====================================================
+# =========================
 
 @app.route("/python-course")
 def python_course():
@@ -361,9 +369,9 @@ def python_course():
     return render_template("Python-course.html")
 
 
-# =====================================================
+# =========================
 # JAVA COURSE
-# =====================================================
+# =========================
 
 @app.route("/java-course")
 def java_course():
@@ -374,9 +382,9 @@ def java_course():
     return render_template("Java-course.html")
 
 
-# =====================================================
+# =========================
 # WEB COURSE
-# =====================================================
+# =========================
 
 @app.route("/web-course")
 def web_course():
@@ -387,9 +395,9 @@ def web_course():
     return render_template("Web-course.html")
 
 
-# =====================================================
+# =========================
 # DATA COURSE
-# =====================================================
+# =========================
 
 @app.route("/data-course")
 def data_course():
@@ -400,9 +408,9 @@ def data_course():
     return render_template("data-course.html")
 
 
-# =====================================================
+# =========================
 # PROFILE
-# =====================================================
+# =========================
 
 @app.route("/profile")
 def profile():
@@ -417,9 +425,9 @@ def profile():
     )
 
 
-# =====================================================
+# =========================
 # LOGOUT
-# =====================================================
+# =========================
 
 @app.route("/logout")
 def logout():
@@ -429,9 +437,9 @@ def logout():
     return redirect(url_for("home"))
 
 
-# =====================================================
+# =========================
 # RUN APPLICATION
-# =====================================================
+# =========================
 
 if __name__ == "__main__":
 
