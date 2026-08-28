@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Java Course - CAPACITY CONNECT</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f7fb;
+            color: #222;
+        }
+
+        /* Navigation */
+        nav {
+            background: #173b67;
+            color: white;
+            padding: 15px 25px;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            gap: 8px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 8px 12px;
+            margin: 0;
+            border-radius: 5px;
+            font-size: 15px;
+        }
+
+        nav a:hover {
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        /* Hero */
+        .hero {
+            background: white;
+            text-align: center;
+            padding: 45px 20px;
+        }
+
+        .hero .icon {
+            font-size: 60px;
+        }
+
+        .hero h1 {
+            color: #173b67;
+            margin: 15px 0 10px;
+            font-size: 38px;
+        }
+
+        .hero p {
+            color: #666;
+            font-size: 17px;
+        }
+
+        /* Content */
+        .content {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .lesson {
+            background: white;
+            margin-bottom: 20px;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .lesson h2 {
+            color: #173b67;
+            margin-bottom: 12px;
+        }
+
+        .lesson p {
+            color: #555;
+            line-height: 1.6;
+            margin-bottom: 12px;
+        }
+
+        .lesson ul {
+            margin-left: 25px;
+            line-height: 1.8;
+            color: #555;
+        }
+
+        /* Code */
+        .code {
+            background: #1e1e1e;
+            color: white;
+            padding: 15px;
+            border-radius: 6px;
+            margin-top: 15px;
+            overflow-x: auto;
+        }
+
+        /* Quiz */
+        .quiz {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            margin-top: 30px;
+        }
+
+        .quiz h2 {
+            color: #173b67;
+            margin-bottom: 15px;
+        }
+
+        .quiz button {
+            margin-top: 15px;
+            padding: 11px 20px;
+            background: #173b67;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        .quiz button:hover {
+            background: #0f2948;
+        }
+
+        #result {
+            margin-top: 15px;
+            font-weight: bold;
+        }
+
+        /* Footer */
+        footer {
+            background: #173b67;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+        }
+
+        /* Mobile */
+        @media (max-width: 600px) {
+            nav {
+                justify-content: center;
+                gap: 4px;
+                padding: 12px 10px;
+                flex-wrap: wrap;
+            }
+
+            nav a {
+                padding: 7px 9px;
+                font-size: 14px;
+            }
+
+            .hero h1 {
+                font-size: 30px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <a href="http://127.0.0.1:5000/dashboard">Dashboard</a>
+        <a href="http://127.0.0.1:5000/courses">Courses</a>
+        <a href="http://127.0.0.1:5000/profile">Profile</a>
+        <a href="http://127.0.0.1:5000/logout">Logout</a>
+    </nav>
+
+
+    <!-- Hero -->
+    <section class="hero">
+
+        <div class="icon">☕</div>
+
+        <h1>Java Programming</h1>
+
+        <p>
+            Learn Java programming from basics to object-oriented concepts.
+        </p>
+
+    </section>
+
+
+    <!-- Course Content -->
+    <main class="content">
+
+        <!-- Lesson 1 -->
+        <section class="lesson">
+
+            <h2>Lesson 1: Introduction to Java</h2>
+
+            <p>
+                Java is a popular object-oriented programming language.
+                It is used for application development, web applications
+                and enterprise software.
+            </p>
+
+            <ul>
+                <li>Object-oriented programming language</li>
+                <li>Platform independent</li>
+                <li>Secure and reliable</li>
+                <li>Widely used in software development</li>
+            </ul>
+
+        </section>
+
+
+        <!-- Lesson 2 -->
+        <section class="lesson">
+
+            <h2>Lesson 2: Variables and Data Types</h2>
+
+            <p>
+                Variables are used to store data. Java supports
+                different data types such as int, double, char and boolean.
+            </p>
+
+            <div class="code">
+                int age = 18;<br>
+                double marks = 85.5;<br>
+                char grade = 'A';<br>
+                boolean passed = true;
+            </div>
+
+        </section>
+
+
+        <!-- Lesson 3 -->
+        <section class="lesson">
+
+            <h2>Lesson 3: If-Else</h2>
+
+            <p>
+                If-else statements are used to make decisions
+                in a Java program.
+            </p>
+
+            <div class="code">
+                int age = 18;<br><br>
+
+                if (age &gt;= 18) {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;System.out.println("Eligible");<br>
+                } else {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;System.out.println("Not Eligible");<br>
+                }
+            </div>
+
+        </section>
+
+
+        <!-- Lesson 4 -->
+        <section class="lesson">
+
+            <h2>Lesson 4: Loops</h2>
+
+            <p>
+                Loops are used to execute a block of code repeatedly.
+            </p>
+
+            <div class="code">
+                for (int i = 1; i &lt;= 5; i++) {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;System.out.println(i);<br>
+                }
+            </div>
+
+        </section>
+
+
+        <!-- Lesson 5 -->
+        <section class="lesson">
+
+            <h2>Lesson 5: Classes and Objects</h2>
+
+            <p>
+                A class is a blueprint for creating objects.
+                An object is an instance of a class.
+            </p>
+
+            <div class="code">
+                class Student {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;String name;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;int age;<br>
+                }<br><br>
+
+                Student s1 = new Student();
+            </div>
+
+        </section>
+
+
+        <!-- Quiz -->
+        <section class="quiz">
+
+            <h2>Quick Quiz 📝</h2>
+
+            <p>
+                <strong>
+                    Which keyword is used to create an object in Java?
+                </strong>
+            </p>
+
+            <br>
+
+            <label>
+                <input type="radio" name="answer" value="a">
+                class
+            </label>
+
+            <br><br>
+
+            <label>
+                <input type="radio" name="answer" value="b">
+                new
+            </label>
+
+            <br><br>
+
+            <label>
+                <input type="radio" name="answer" value="c">
+                object
+            </label>
+
+            <br>
+
+            <button onclick="checkAnswer()">
+                Submit Answer
+            </button>
+
+            <div id="result"></div>
+
+        </section>
+
+    </main>
+
+
+    <!-- Footer -->
+    <footer>
+
+        <p>
+            © 2026 CAPACITY CONNECT | Digital Learning Portal
+        </p>
+
+    </footer>
+
+
+    <!-- Quiz JavaScript -->
+    <script>
+    function checkAnswer() {
+
+        const answer = document.querySelector(
+            'input[name="answer"]:checked'
+        );
+
+        const result = document.getElementById("result");
+
+        if (!answer) {
+            result.innerText = "Please select an answer.";
+            result.style.color = "red";
+            return;
+        }
+
+        if (answer.value === "b") {
+            result.innerText = "Correct Answer! 🎉 Score: 100%";
+            result.style.color = "green";
+
+            localStorage.setItem("javaProgress", "100");
+
+        } else {
+            result.innerText = "Wrong Answer. Try again!";
+            result.style.color = "red";
+
+            localStorage.setItem("javaProgress", "0");
+        }
+    }
+</script>
+
+</body>
+</html>

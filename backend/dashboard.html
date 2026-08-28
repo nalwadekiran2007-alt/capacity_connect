@@ -1,0 +1,355 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Dashboard - CAPACITY CONNECT</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f7fb;
+            color: #222;
+        }
+
+        /* Navigation */
+        nav {
+            background: #173b67;
+            color: white;
+            padding: 18px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            font-size: 23px;
+            font-weight: bold;
+        }
+
+        nav div:last-child {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            font-size: 15px;
+        }
+
+        nav a:hover {
+            text-decoration: underline;
+        }
+
+        .logout {
+            background: white;
+            color: #173b67 !important;
+            padding: 8px 14px;
+            border-radius: 6px;
+            font-weight: bold;
+        }
+
+        .logout:hover {
+            text-decoration: none;
+            background: #f0f0f0;
+        }
+
+        /* Welcome Section */
+        .welcome {
+            background: white;
+            text-align: center;
+            padding: 45px 20px;
+        }
+
+        .welcome h1 {
+            color: #173b67;
+            margin-bottom: 12px;
+            font-size: 36px;
+        }
+
+        .welcome p {
+            color: #666;
+            font-size: 17px;
+        }
+
+        /* Dashboard Cards */
+        .dashboard {
+            max-width: 1100px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .card-container {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .card-icon {
+            font-size: 45px;
+            margin-bottom: 15px;
+        }
+
+        .card h2 {
+            color: #173b67;
+            margin-bottom: 12px;
+        }
+
+        .card p {
+            color: #666;
+            line-height: 1.5;
+            margin-bottom: 20px;
+        }
+
+        .card a {
+            display: inline-block;
+            padding: 10px 18px;
+            background: #173b67;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+        }
+
+        .card a:hover {
+            background: #0f2948;
+        }
+
+        /* Footer */
+        footer {
+            background: #173b67;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 50px;
+        }
+
+        /* Mobile */
+        @media (max-width: 768px) {
+
+            nav {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav div:last-child {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+
+            .card-container {
+                grid-template-columns: 1fr;
+            }
+
+            .welcome h1 {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav>
+
+        <div class="logo">
+            CAPACITY CONNECT
+        </div>
+
+        <div>
+            <a href="dashboard.html">Dashboard</a>
+
+            <a href="courses.html">Courses</a>
+
+            <a href="progress.html">Progress</a>
+
+            <a href="certificates.html">Certificates</a>
+
+            <a href="http://127.0.0.1:5000/profile">Profile</a>
+
+           <a href="http://127.0.0.1:5000/logout" class="logout">
+             Logout
+           </a>
+        </div>
+
+    </nav>
+
+
+    <!-- Welcome -->
+    <section class="welcome">
+
+        <h1>
+            Welcome to CAPACITY CONNECT 🎓
+        </h1>
+
+        <p>
+            Continue your learning journey and build your skills.
+        </p>
+
+    </section>
+
+
+    <!-- Dashboard -->
+    <main class="dashboard">
+
+        <div class="card-container">
+
+
+            <!-- Courses -->
+            <div class="card">
+
+                <div class="card-icon">
+                    📚
+                </div>
+
+                <h2>My Courses</h2>
+
+                <p>
+                    Explore courses and learn new skills
+                    through our digital learning platform.
+                </p>
+
+                <a href="courses.html">
+                    View Courses
+                </a>
+
+            </div>
+
+
+            <!-- Progress -->
+            <div class="card">
+
+                <div class="card-icon">
+                    📈
+                </div>
+
+                <h2>My Progress</h2>
+
+                <p>
+                    Track your learning progress and
+                    monitor your course completion.
+                </p>
+
+                <a href="progress.html">
+                    View Progress
+                </a>
+
+            </div>
+
+
+            <!-- Certificates -->
+            <div class="card">
+
+                <div class="card-icon">
+                    🏆
+                </div>
+
+                <h2>Certificates</h2>
+
+                <p>
+                    View and download certificates
+                    for your completed courses.
+                </p>
+
+                <a href="certificates.html">
+                    View Certificates
+                </a>
+
+            </div>
+
+
+            <!-- Profile -->
+            <div class="card">
+
+                <div class="card-icon">
+                    👤
+                </div>
+
+                <h2>My Profile</h2>
+
+                <p>
+                    View your personal information
+                    and learning achievements.
+                </p>
+
+                <a href="http://127.0.0.1:5000/profile">View Profile</a>
+
+            </div>
+
+
+            <!-- Learning -->
+            <div class="card">
+
+                <div class="card-icon">
+                    🎯
+                </div>
+
+                <h2>Learning Goals</h2>
+
+                <p>
+                    Set your learning goals and
+                    improve your skills continuously.
+                </p>
+
+                <a href="courses.html">
+                    Start Learning
+                </a>
+
+            </div>
+
+
+            <!-- Support -->
+            <div class="card">
+
+                <div class="card-icon">
+                    💡
+                </div>
+
+                <h2>Learning Support</h2>
+
+                <p>
+                    Access learning resources and
+                    continue developing your knowledge.
+                </p>
+
+                <a href="courses.html">
+                    Explore
+                </a>
+
+            </div>
+
+
+        </div>
+
+    </main>
+
+
+    <!-- Footer -->
+    <footer>
+
+        <p>
+            © 2026 CAPACITY CONNECT | Digital Learning Portal
+        </p>
+
+    </footer>
+
+</body>
+</html>

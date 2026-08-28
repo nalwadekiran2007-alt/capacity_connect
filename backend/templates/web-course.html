@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Web Development - CAPACITY CONNECT</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f7fb;
+            color: #222;
+        }
+
+        /* Navigation */
+        nav {
+            background: #173b67;
+            color: white;
+            padding: 15px 25px;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            gap: 8px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 8px 12px;
+            margin: 0;
+            border-radius: 5px;
+            font-size: 15px;
+        }
+
+        nav a:hover {
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        /* Hero */
+        .hero {
+            background: white;
+            text-align: center;
+            padding: 45px 20px;
+        }
+
+        .hero .icon {
+            font-size: 60px;
+        }
+
+        .hero h1 {
+            color: #173b67;
+            margin: 15px 0 10px;
+            font-size: 38px;
+        }
+
+        .hero p {
+            color: #666;
+            font-size: 17px;
+        }
+
+        /* Content */
+        .content {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .lesson {
+            background: white;
+            margin-bottom: 20px;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .lesson h2 {
+            color: #173b67;
+            margin-bottom: 12px;
+        }
+
+        .lesson p {
+            color: #555;
+            line-height: 1.6;
+            margin-bottom: 12px;
+        }
+
+        .lesson ul {
+            margin-left: 25px;
+            line-height: 1.8;
+            color: #555;
+        }
+
+        /* Code */
+        .code {
+            background: #1e1e1e;
+            color: white;
+            padding: 15px;
+            border-radius: 6px;
+            margin-top: 15px;
+            overflow-x: auto;
+        }
+
+        /* Quiz */
+        .quiz {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            margin-top: 30px;
+        }
+
+        .quiz h2 {
+            color: #173b67;
+            margin-bottom: 15px;
+        }
+
+        .quiz button {
+            margin-top: 15px;
+            padding: 11px 20px;
+            background: #173b67;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        .quiz button:hover {
+            background: #0f2948;
+        }
+
+        #result {
+            margin-top: 15px;
+            font-weight: bold;
+        }
+
+        /* Footer */
+        footer {
+            background: #173b67;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+        }
+
+        /* Mobile */
+        @media (max-width: 600px) {
+            nav {
+                justify-content: center;
+                gap: 4px;
+                padding: 12px 10px;
+                flex-wrap: wrap;
+            }
+
+            nav a {
+                padding: 7px 9px;
+                font-size: 14px;
+            }
+
+            .hero h1 {
+                font-size: 30px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav>
+        <a href="http://127.0.0.1:5000/dashboard">Dashboard</a>
+        <a href="http://127.0.0.1:5000/courses">Courses</a>
+        <a href="http://127.0.0.1:5000/profile">Profile</a>
+        <a href="http://127.0.0.1:5000/logout">Logout</a>
+    </nav>
+
+
+    <!-- Hero -->
+    <section class="hero">
+
+        <div class="icon">🌐</div>
+
+        <h1>Web Development</h1>
+
+        <p>
+            Learn HTML, CSS and JavaScript and build modern websites.
+        </p>
+
+    </section>
+
+
+    <!-- Course Content -->
+    <main class="content">
+
+        <!-- Lesson 1 -->
+        <section class="lesson">
+
+            <h2>Lesson 1: HTML Basics</h2>
+
+            <p>
+                HTML stands for HyperText Markup Language.
+                It is used to create the structure of web pages.
+            </p>
+
+            <ul>
+                <li>Headings</li>
+                <li>Paragraphs</li>
+                <li>Links</li>
+                <li>Images</li>
+                <li>Forms</li>
+            </ul>
+
+            <div class="code">
+                &lt;h1&gt;Hello World&lt;/h1&gt;<br>
+                &lt;p&gt;Welcome to my website.&lt;/p&gt;
+            </div>
+
+        </section>
+
+
+        <!-- Lesson 2 -->
+        <section class="lesson">
+
+            <h2>Lesson 2: CSS Basics</h2>
+
+            <p>
+                CSS stands for Cascading Style Sheets.
+                It is used to design and style web pages.
+            </p>
+
+            <ul>
+                <li>Colors</li>
+                <li>Fonts</li>
+                <li>Spacing</li>
+                <li>Layouts</li>
+                <li>Responsive design</li>
+            </ul>
+
+            <div class="code">
+                body {<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;font-family: Arial;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;background: white;<br>
+                }
+            </div>
+
+        </section>
+
+
+        <!-- Lesson 3 -->
+        <section class="lesson">
+
+            <h2>Lesson 3: JavaScript Basics</h2>
+
+            <p>
+                JavaScript is used to make web pages interactive
+                and dynamic.
+            </p>
+
+            <div class="code">
+                let name = "Kiran";<br>
+                console.log("Hello " + name);
+            </div>
+
+        </section>
+
+
+        <!-- Lesson 4 -->
+        <section class="lesson">
+
+            <h2>Lesson 4: HTML Forms</h2>
+
+            <p>
+                Forms are used to collect information from users.
+            </p>
+
+            <div class="code">
+                &lt;form&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&lt;input type="text" placeholder="Name"&gt;<br>
+                &nbsp;&nbsp;&nbsp;&nbsp;&lt;button&gt;Submit&lt;/button&gt;<br>
+                &lt;/form&gt;
+            </div>
+
+        </section>
+
+
+        <!-- Lesson 5 -->
+        <section class="lesson">
+
+            <h2>Lesson 5: Responsive Web Design</h2>
+
+            <p>
+                Responsive design makes websites work properly
+                on mobile phones, tablets and computers.
+            </p>
+
+            <ul>
+                <li>Flexible layouts</li>
+                <li>Mobile-friendly design</li>
+                <li>Media queries</li>
+                <li>Responsive images</li>
+            </ul>
+
+        </section>
+
+
+        <!-- Quiz -->
+        <section class="quiz">
+
+            <h2>Quick Quiz 📝</h2>
+
+            <p>
+                <strong>
+                    Which language is used to style a web page?
+                </strong>
+            </p>
+
+            <br>
+
+            <label>
+                <input type="radio" name="answer" value="a">
+                HTML
+            </label>
+
+            <br><br>
+
+            <label>
+                <input type="radio" name="answer" value="b">
+                CSS
+            </label>
+
+            <br><br>
+
+            <label>
+                <input type="radio" name="answer" value="c">
+                Python
+            </label>
+
+            <br>
+
+            <button onclick="checkAnswer()">
+                Submit Answer
+            </button>
+
+            <div id="result"></div>
+
+        </section>
+
+    </main>
+
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2026 CAPACITY CONNECT | Digital Learning Portal</p>
+    </footer>
+
+
+    <!-- Quiz JavaScript -->
+    <script>
+    function checkAnswer() {
+
+        const answer = document.querySelector(
+            'input[name="answer"]:checked'
+        );
+
+        const result = document.getElementById("result");
+
+        if (!answer) {
+            result.innerText = "Please select an answer.";
+            result.style.color = "red";
+            return;
+        }
+
+        if (answer.value === "b") {
+            result.innerText = "Correct Answer! 🎉 Score: 100%";
+            result.style.color = "green";
+
+            localStorage.setItem("webProgress", "100");
+
+        } else {
+            result.innerText = "Wrong Answer. Try again!";
+            result.style.color = "red";
+
+            localStorage.setItem("webProgress", "0");
+        }
+    }
+</script>
+</body>
+</html>

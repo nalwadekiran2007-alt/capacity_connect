@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Verify Certificate - CAPACITY CONNECT</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f7fb;
+            color: #222;
+        }
+
+        nav {
+            background: #173b67;
+            color: white;
+            padding: 18px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            font-size: 23px;
+            font-weight: bold;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 8px 14px;
+            border-radius: 6px;
+        }
+
+        nav a:hover {
+            background: #28558a;
+        }
+
+        .container {
+            max-width: 650px;
+            margin: 70px auto;
+            padding: 20px;
+        }
+
+        .verify-card {
+            background: white;
+            padding: 40px;
+            border-radius: 14px;
+            text-align: center;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .icon {
+            font-size: 60px;
+            margin-bottom: 15px;
+        }
+
+        h1 {
+            color: #173b67;
+            margin-bottom: 10px;
+        }
+
+        .description {
+            color: #666;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        input {
+            width: 100%;
+            padding: 14px;
+            border: 1px solid #ccc;
+            border-radius: 7px;
+            font-size: 16px;
+            margin-bottom: 15px;
+        }
+
+        button {
+            width: 100%;
+            padding: 14px;
+            background: #173b67;
+            color: white;
+            border: none;
+            border-radius: 7px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background: #0f2948;
+        }
+
+        #result {
+            margin-top: 25px;
+            padding: 20px;
+            border-radius: 8px;
+            display: none;
+        }
+
+        .valid {
+            background: #e8f7ee;
+            color: green;
+        }
+
+        .invalid {
+            background: #fdeaea;
+            color: red;
+        }
+
+        footer {
+            background: #173b67;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 100px;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <!-- Navigation -->
+
+    <nav>
+
+        <div class="logo">
+            CAPACITY CONNECT
+        </div>
+
+        <div>
+
+            <a href="/dashboard">
+                Dashboard
+            </a>
+
+            <a href="/certificates">
+                My Certificates
+            </a>
+
+        </div>
+
+    </nav>
+
+
+    <!-- Verification -->
+
+    <main class="container">
+
+        <div class="verify-card">
+
+            <div class="icon">
+                🔐
+            </div>
+
+            <h1>
+                Certificate Verification
+            </h1>
+
+            <p class="description">
+                Enter your Certificate ID below to verify
+                the authenticity of a CAPACITY CONNECT certificate.
+            </p>
+
+
+            <input
+                type="text"
+                id="certificateId"
+                placeholder="Enter Certificate ID"
+            >
+
+
+            <button onclick="verifyCertificate()">
+                🔍 Verify Certificate
+            </button>
+
+
+            <div id="result"></div>
+
+        </div>
+
+    </main>
+
+
+    <!-- Footer -->
+
+    <footer>
+
+        <p>
+            © 2026 CAPACITY CONNECT | Digital Learning Portal
+        </p>
+
+    </footer>
+
+
+    <script>
+
+        function verifyCertificate() {
+
+            const certificateId =
+                document.getElementById("certificateId")
+                .value
+                .trim();
+
+            const result =
+                document.getElementById("result");
+
+
+            if (certificateId === "") {
+
+                result.style.display = "block";
+
+                result.className = "invalid";
+
+                result.innerText =
+                    "⚠️ Please enter a Certificate ID.";
+
+                return;
+            }
+
+
+            /*
+                Demo Certificate IDs
+
+                These IDs will later be connected
+                with the MySQL database.
+            */
+
+            const certificates = {
+
+                "CC-PYTHON-001": {
+                    name: "Kiran",
+                    course: "Python Programming"
+                },
+
+                "CC-JAVA-001": {
+                    name: "Kiran",
+                    course: "Java Programming"
+                },
+
+                "CC-WEB-001": {
+                    name: "Kiran",
+                    course: "Web Development"
+                },
+
+                "CC-DATA-001": {
+                    name: "Kiran",
+                    course: "Data Analytics"
+                }
+
+            };
+
+
+            if (certificates[certificateId]) {
+
+                const certificate =
+                    certificates[certificateId];
+
+
+                result.style.display = "block";
+
+                result.className = "valid";
+
+                result.innerHTML =
+
+                    "✅ <strong>Certificate Verified!</strong><br><br>" +
+
+                    "Student Name: <strong>" +
+                    certificate.name +
+                    "</strong><br>" +
+
+                    "Course: <strong>" +
+                    certificate.course +
+                    "</strong><br>" +
+
+                    "Certificate ID: <strong>" +
+                    certificateId +
+                    "</strong>";
+
+            }
+
+            else {
+
+                result.style.display = "block";
+
+                result.className = "invalid";
+
+                result.innerHTML =
+                    "❌ <strong>Invalid Certificate ID</strong><br><br>" +
+                    "This certificate could not be verified.";
+
+            }
+
+        }
+
+    </script>
+
+</body>
+
+</html>

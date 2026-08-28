@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Data Analytics - CAPACITY CONNECT</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f7fb;
+            color: #222;
+        }
+
+        /* Navigation */
+        nav {
+            background: #173b67;
+            color: white;
+            padding: 15px 25px;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            gap: 8px;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 8px 12px;
+            margin: 0;
+            border-radius: 5px;
+            font-size: 15px;
+        }
+
+        nav a:hover {
+            background: rgba(255, 255, 255, 0.15);
+        }
+
+        /* Hero */
+        .hero {
+            background: white;
+            text-align: center;
+            padding: 45px 20px;
+        }
+
+        .hero .icon {
+            font-size: 60px;
+        }
+
+        .hero h1 {
+            color: #173b67;
+            margin: 15px 0 10px;
+            font-size: 38px;
+        }
+
+        .hero p {
+            color: #666;
+            font-size: 17px;
+        }
+
+        /* Content */
+        .content {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .lesson {
+            background: white;
+            margin-bottom: 20px;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .lesson h2 {
+            color: #173b67;
+            margin-bottom: 12px;
+        }
+
+        .lesson p {
+            color: #555;
+            line-height: 1.6;
+            margin-bottom: 12px;
+        }
+
+        .lesson ul {
+            margin-left: 25px;
+            line-height: 1.8;
+            color: #555;
+        }
+
+        /* Code */
+        .code {
+            background: #1e1e1e;
+            color: white;
+            padding: 15px;
+            border-radius: 6px;
+            margin-top: 15px;
+            overflow-x: auto;
+        }
+
+        /* Quiz */
+        .quiz {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            margin-top: 30px;
+        }
+
+        .quiz h2 {
+            color: #173b67;
+            margin-bottom: 15px;
+        }
+
+        .quiz button {
+            margin-top: 15px;
+            padding: 11px 20px;
+            background: #173b67;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+
+        .quiz button:hover {
+            background: #0f2948;
+        }
+
+        #result {
+            margin-top: 15px;
+            font-weight: bold;
+        }
+
+        /* Footer */
+        footer {
+            background: #173b67;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+        }
+
+        /* Mobile */
+        @media (max-width: 600px) {
+
+            nav {
+                justify-content: center;
+                gap: 4px;
+                padding: 12px 10px;
+                flex-wrap: wrap;
+            }
+
+            nav a {
+                padding: 7px 9px;
+                font-size: 14px;
+            }
+
+            .hero h1 {
+                font-size: 30px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav>
+
+        <a href="http://127.0.0.1:5000/dashboard">
+            Dashboard
+        </a>
+
+        <a href="http://127.0.0.1:5000/courses">
+            Courses
+        </a>
+
+        <a href="http://127.0.0.1:5000/profile">
+            Profile
+        </a>
+
+        <a href="http://127.0.0.1:5000/logout">
+            Logout
+        </a>
+
+    </nav>
+
+
+    <!-- Hero -->
+    <section class="hero">
+
+        <div class="icon">📊</div>
+
+        <h1>Data Analytics</h1>
+
+        <p>
+            Learn the fundamentals of data analysis,
+            visualization and interpretation.
+        </p>
+
+    </section>
+
+
+    <!-- Course Content -->
+    <main class="content">
+
+        <!-- Lesson 1 -->
+        <section class="lesson">
+
+            <h2>Lesson 1: Introduction to Data Analytics</h2>
+
+            <p>
+                Data Analytics is the process of examining data
+                to find useful information, patterns and insights.
+            </p>
+
+            <ul>
+                <li>Collecting data</li>
+                <li>Cleaning data</li>
+                <li>Analyzing data</li>
+                <li>Visualizing data</li>
+                <li>Making decisions</li>
+            </ul>
+
+        </section>
+
+
+        <!-- Lesson 2 -->
+        <section class="lesson">
+
+            <h2>Lesson 2: Types of Data</h2>
+
+            <p>
+                Data can be classified into different types
+                depending on its nature and usage.
+            </p>
+
+            <ul>
+                <li>Numerical Data</li>
+                <li>Categorical Data</li>
+                <li>Qualitative Data</li>
+                <li>Quantitative Data</li>
+            </ul>
+
+        </section>
+
+
+        <!-- Lesson 3 -->
+        <section class="lesson">
+
+            <h2>Lesson 3: Python for Data Analysis</h2>
+
+            <p>
+                Python is widely used for data analytics because
+                of its powerful libraries.
+            </p>
+
+            <ul>
+                <li>NumPy</li>
+                <li>Pandas</li>
+                <li>Matplotlib</li>
+            </ul>
+
+            <div class="code">
+                import pandas as pd<br><br>
+
+                data = {"Name": ["A", "B"], "Marks": [80, 90]}<br>
+                df = pd.DataFrame(data)<br>
+                print(df)
+            </div>
+
+        </section>
+
+
+        <!-- Lesson 4 -->
+        <section class="lesson">
+
+            <h2>Lesson 4: Data Visualization</h2>
+
+            <p>
+                Data visualization represents information
+                using charts and graphs.
+            </p>
+
+            <ul>
+                <li>Bar Chart</li>
+                <li>Line Chart</li>
+                <li>Pie Chart</li>
+                <li>Histogram</li>
+            </ul>
+
+        </section>
+
+
+        <!-- Lesson 5 -->
+        <section class="lesson">
+
+            <h2>Lesson 5: Data Interpretation</h2>
+
+            <p>
+                Data interpretation means understanding the
+                results obtained from analyzed data.
+            </p>
+
+            <ul>
+                <li>Identify trends</li>
+                <li>Compare values</li>
+                <li>Find patterns</li>
+                <li>Make data-driven decisions</li>
+            </ul>
+
+        </section>
+
+
+        <!-- Quiz -->
+        <section class="quiz">
+
+            <h2>Quick Quiz 📝</h2>
+
+            <p>
+                <strong>
+                    Which Python library is commonly used for data manipulation?
+                </strong>
+            </p>
+
+            <br>
+
+            <label>
+                <input type="radio" name="answer" value="a">
+                Pandas
+            </label>
+
+            <br><br>
+
+            <label>
+                <input type="radio" name="answer" value="b">
+                Flask
+            </label>
+
+            <br><br>
+
+            <label>
+                <input type="radio" name="answer" value="c">
+                Django
+            </label>
+
+            <br>
+
+            <button onclick="checkAnswer()">
+                Submit Answer
+            </button>
+
+            <div id="result"></div>
+
+        </section>
+
+    </main>
+
+
+    <!-- Footer -->
+    <footer>
+
+        <p>
+            © 2026 CAPACITY CONNECT | Digital Learning Portal
+        </p>
+
+    </footer>
+
+
+    <!-- Quiz JavaScript -->
+    <script>
+    function checkAnswer() {
+
+        const answer = document.querySelector(
+            'input[name="answer"]:checked'
+        );
+
+        const result = document.getElementById("result");
+
+        if (!answer) {
+            result.innerText = "Please select an answer.";
+            result.style.color = "red";
+            return;
+        }
+
+        if (answer.value === "a") {
+            result.innerText = "Correct Answer! 🎉 Score: 100%";
+            result.style.color = "green";
+
+            localStorage.setItem("dataProgress", "100");
+
+        } else {
+            result.innerText = "Wrong Answer. Try again!";
+            result.style.color = "red";
+
+            localStorage.setItem("dataProgress", "0");
+        }
+    }
+</script>
+
+</body>
+</html>

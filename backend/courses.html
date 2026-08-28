@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Courses - CAPACITY CONNECT</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f7fb;
+            color: #222;
+        }
+
+        /* Navbar */
+        nav {
+            background: #173b67;
+            color: white;
+            padding: 18px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 23px;
+            font-weight: bold;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+        }
+
+        /* Header */
+        .header {
+            text-align: center;
+            background: white;
+            padding: 45px 20px;
+        }
+
+        .header h1 {
+            color: #173b67;
+            margin-bottom: 12px;
+            font-size: 38px;
+        }
+
+        .header p {
+            color: #666;
+            font-size: 17px;
+        }
+
+        /* Courses */
+        .courses {
+            padding: 45px 8%;
+        }
+
+        .course-container {
+            display: flex;
+            justify-content: center;
+            gap: 25px;
+            flex-wrap: wrap;
+        }
+
+        .course-card {
+            background: white;
+            width: 270px;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .course-icon {
+            font-size: 45px;
+            margin-bottom: 15px;
+        }
+
+        .course-card h2 {
+            color: #173b67;
+            margin-bottom: 12px;
+        }
+
+        .course-card p {
+            color: #666;
+            line-height: 1.5;
+            margin-bottom: 20px;
+        }
+
+        .course-card button {
+            width: 100%;
+            padding: 11px;
+            background: #173b67;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 15px;
+        }
+
+        .start-btn {
+    display: block;
+    width: 100%;
+    padding: 11px;
+    background: #173b67;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 15px;
+}
+
+.start-btn:hover {
+    background: #0f2948;
+}:hover {
+            background: #0f2948;
+        }
+
+        footer {
+            background: #173b67;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav>
+
+        <div class="logo">
+            CAPACITY CONNECT
+        </div>
+
+        <div>
+            <a href="dashboard.html">Dashboard</a>
+            <a href="login.html">Logout</a>
+        </div>
+
+    </nav>
+
+
+    <!-- Header -->
+    <section class="header">
+
+        <h1>Explore Our Courses</h1>
+
+        <p>
+            Learn new skills and build your future with CAPACITY CONNECT.
+        </p>
+
+    </section>
+
+
+    <!-- Course List -->
+    <section class="courses">
+
+        <div class="course-container">
+
+
+            <!-- Java -->
+            <div class="course-card">
+
+                <div class="course-icon">☕</div>
+
+                <h2>Java Programming</h2>
+
+                <p>
+                    Learn Java programming, object-oriented
+                    programming and application development.
+                </p>
+
+                <a href="java-course.html" class="start-btn">Start Learning</a>
+            </div>
+
+
+            <!-- Python -->
+            <div class="course-card">
+
+                <div class="course-icon">🐍</div>
+
+                <h2>Python Programming</h2>
+
+                <p>
+                    Learn Python basics, functions, loops,
+                    data structures and practical programming.
+                </p>
+
+                <a href="python-course.html" class="start-btn">Start Learning</a>
+
+            </div>
+
+
+            <!-- Web Development -->
+            <div class="course-card">
+
+                <div class="course-icon">🌐</div>
+
+                <h2>Web Development</h2>
+
+                <p>
+                    Learn HTML, CSS and JavaScript and
+                    create modern websites.
+                </p>
+
+                <a href="web-course.html" class="start-btn">Start Learning</a>
+            </div>
+
+
+            <!-- Data Analytics -->
+            <div class="course-card">
+
+                <div class="course-icon">📊</div>
+
+                <h2>Data Analytics</h2>
+
+                <p>
+                    Learn data analysis, visualization and
+                    basic analytics concepts.
+                </p>
+
+                <a href="data-course.html" class="start-btn">Start Learning</a>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+
+    <footer>
+        <p>© 2026 CAPACITY CONNECT | Digital Learning Portal</p>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>CAPACITY CONNECT</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f7fb;
+            color: #222;
+        }
+
+        /* Navbar */
+        nav {
+            background: #173b67;
+            padding: 18px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            color: white;
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 25px;
+        }
+
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        nav ul li a:hover {
+            text-decoration: underline;
+        }
+
+        /* Hero Section */
+        .hero {
+            min-height: 450px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 60px 8%;
+            background: white;
+        }
+
+        .hero-text {
+            max-width: 550px;
+        }
+
+        .hero-text h1 {
+            font-size: 48px;
+            color: #173b67;
+            margin-bottom: 20px;
+        }
+
+        .hero-text p {
+            font-size: 18px;
+            line-height: 1.7;
+            color: #555;
+            margin-bottom: 30px;
+        }
+
+        .btn {
+            display: inline-block;
+            background: #173b67;
+            color: white;
+            padding: 13px 25px;
+            border-radius: 6px;
+            text-decoration: none;
+            margin-right: 10px;
+        }
+
+        .btn:hover {
+            background: #0f2948;
+        }
+
+        .hero-box {
+            width: 350px;
+            height: 250px;
+            background: #e8f0fa;
+            border-radius: 15px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 80px;
+        }
+
+        /* Courses */
+        .courses {
+            padding: 60px 8%;
+        }
+
+        .courses h2 {
+            text-align: center;
+            color: #173b67;
+            margin-bottom: 40px;
+            font-size: 32px;
+        }
+
+        .course-container {
+            display: flex;
+            gap: 25px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .course-card {
+            background: white;
+            width: 260px;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .course-card h3 {
+            color: #173b67;
+            margin-bottom: 12px;
+        }
+
+        .course-card p {
+            color: #666;
+            line-height: 1.5;
+        }
+
+        /* Footer */
+        footer {
+            background: #173b67;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 30px;
+        }
+
+        @media (max-width: 768px) {
+            .hero {
+                flex-direction: column;
+                text-align: center;
+                gap: 40px;
+            }
+
+            .hero-text h1 {
+                font-size: 36px;
+            }
+
+            nav ul {
+                gap: 10px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation Bar -->
+    <nav>
+        <div class="logo">CAPACITY CONNECT</div>
+
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Courses</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Login</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+
+        <div class="hero-text">
+            <h1>Learn. Build. Grow.</h1>
+
+            <p>
+                CAPACITY CONNECT is a digital learning and
+                capacity building platform that helps users
+                learn new skills, complete courses and track
+                their learning progress.
+            </p>
+
+            <a href="#" class="btn">Explore Courses</a>
+            <a href="#" class="btn">Get Started</a>
+        </div>
+
+        <div class="hero-box">
+            📚
+        </div>
+
+    </section>
+
+    <!-- Courses Section -->
+    <section class="courses">
+
+        <h2>Popular Courses</h2>
+
+        <div class="course-container">
+
+            <div class="course-card">
+                <h3>Java Programming</h3>
+                <p>
+                    Learn Java programming, OOP concepts
+                    and application development.
+                </p>
+            </div>
+
+            <div class="course-card">
+                <h3>Python Programming</h3>
+                <p>
+                    Learn Python basics, programming concepts
+                    and practical applications.
+                </p>
+            </div>
+
+            <div class="course-card">
+                <h3>Web Development</h3>
+                <p>
+                    Learn HTML, CSS and JavaScript to
+                    build modern websites.
+                </p>
+            </div>
+
+            <div class="course-card">
+                <h3>Data Analytics</h3>
+                <p>
+                    Learn data analysis, visualization
+                    and basic analytics concepts.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>© 2026 CAPACITY CONNECT | Digital Learning Portal</p>
+    </footer>
+
+</body>
+</html>

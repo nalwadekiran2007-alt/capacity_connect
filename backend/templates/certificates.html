@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Certificates - CAPACITY CONNECT</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f7fb;
+            color: #222;
+        }
+
+        nav {
+            background: #173b67;
+            color: white;
+            padding: 18px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            font-size: 23px;
+            font-weight: bold;
+        }
+
+        nav div:last-child {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 8px 14px;
+            border-radius: 6px;
+            font-size: 15px;
+        }
+
+        nav a:hover {
+            background: #28558a;
+        }
+
+        .logout {
+            background: white;
+            color: #173b67 !important;
+            font-weight: bold;
+        }
+
+        .header {
+            background: white;
+            text-align: center;
+            padding: 45px 20px;
+        }
+
+        .header-icon {
+            font-size: 55px;
+            margin-bottom: 10px;
+        }
+
+        .header h1 {
+            color: #173b67;
+            margin-bottom: 10px;
+            font-size: 36px;
+        }
+
+        .header p {
+            color: #666;
+            font-size: 17px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .certificate-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+
+        .certificate {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            text-align: center;
+            border-top: 5px solid #173b67;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .certificate-icon {
+            font-size: 50px;
+            margin-bottom: 12px;
+        }
+
+        .certificate h2 {
+            color: #173b67;
+            margin-bottom: 12px;
+        }
+
+        .certificate p {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+
+        .certificate-name {
+            font-size: 21px;
+            font-weight: bold;
+            color: #222;
+            margin: 15px 0;
+        }
+
+        .course-name {
+            color: #173b67;
+            font-weight: bold;
+        }
+
+        .status {
+            margin-top: 12px;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .download-btn {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 11px 20px;
+            background: #173b67;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+            font-weight: bold;
+        }
+
+        .download-btn:hover {
+            background: #0f2948;
+        }
+
+        footer {
+            background: #173b67;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 50px;
+        }
+
+        @media (max-width: 768px) {
+            nav {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav div:last-child {
+                justify-content: center;
+            }
+
+            .certificate-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .header h1 {
+                font-size: 28px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav>
+
+        <div class="logo">
+            CAPACITY CONNECT
+        </div>
+
+        <div>
+
+            <a href="/dashboard">
+                Dashboard
+            </a>
+
+            <a href="/courses">
+                Courses
+            </a>
+
+            <a href="/profile">
+                Profile
+            </a>
+
+            <a href="/logout" class="logout">
+                Logout
+            </a>
+
+        </div>
+
+    </nav>
+
+
+    <!-- Header -->
+    <section class="header">
+
+        <div class="header-icon">
+            🏆
+        </div>
+
+        <h1>
+            My Certificates
+        </h1>
+
+        <p>
+            View and download your completed course certificates.
+        </p>
+
+    </section>
+
+
+    <!-- Certificates -->
+    <main class="container">
+
+        <div class="certificate-grid">
+
+
+            <!-- Python Certificate -->
+            <section class="certificate">
+
+                <div class="certificate-icon">
+                    🐍
+                </div>
+
+                <h2>
+                    Certificate of Completion
+                </h2>
+
+                <p>
+                    This certificate is awarded to
+                </p>
+
+                <div class="certificate-name">
+                    {{ name }}
+                </div>
+
+                <p>
+                    for successfully completing
+                </p>
+
+                <p class="course-name">
+                    Python Programming
+                </p>
+
+                <p>
+                    CAPACITY CONNECT
+                </p>
+
+                <div id="pythonCertificateStatus" class="status"></div>
+
+                <a
+                    href="/download-certificate"
+                    class="download-btn">
+                    📥 Download Python Certificate
+                </a>
+
+            </section>
+
+
+            <!-- Java Certificate -->
+            <section class="certificate">
+
+                <div class="certificate-icon">
+                    ☕
+                </div>
+
+                <h2>
+                    Certificate of Completion
+                </h2>
+
+                <p>
+                    This certificate is awarded to
+                </p>
+
+                <div class="certificate-name">
+                     {{ name }}
+                </div>
+
+                <p>
+                    for successfully completing
+                </p>
+
+                <p class="course-name">
+                    Java Programming
+                </p>
+
+                <p>
+                    CAPACITY CONNECT
+                </p>
+
+                <div id="javaCertificateStatus" class="status"></div>
+
+                <a
+                    href="/download-java-certificate"
+                    class="download-btn">
+                    📥 Download Java Certificate
+                </a>
+
+            </section>
+
+
+            <!-- Web Development Certificate -->
+            <section class="certificate">
+
+                <div class="certificate-icon">
+                    🌐
+                </div>
+
+                <h2>
+                    Certificate of Completion
+                </h2>
+
+                <p>
+                    This certificate is awarded to
+                </p>
+
+                <div class="certificate-name">
+                     {{ name }}
+                </div>
+
+                <p>
+                    for successfully completing
+                </p>
+
+                <p class="course-name">
+                    Web Development
+                </p>
+
+                <p>
+                    CAPACITY CONNECT
+                </p>
+
+                <div id="webCertificateStatus" class="status"></div>
+
+                <a
+                    href="/download-web-certificate"
+                    class="download-btn">
+                    📥 Download Web Certificate
+                </a>
+
+            </section>
+
+
+            <!-- Data Analytics Certificate -->
+            <section class="certificate">
+
+                <div class="certificate-icon">
+                    📊
+                </div>
+
+                <h2>
+                    Certificate of Completion
+                </h2>
+
+                <p>
+                    This certificate is awarded to
+                </p>
+
+                <div class="certificate-name">
+                     {{ name }}
+                </div>
+
+                <p>
+                    for successfully completing
+                </p>
+
+                <p class="course-name">
+                    Data Analytics
+                </p>
+
+                <p>
+                    CAPACITY CONNECT
+                </p>
+
+                <div id="dataCertificateStatus" class="status"></div>
+
+                <a
+                    href="/download-data-certificate"
+                    class="download-btn">
+                    📥 Download Data Analytics Certificate
+                </a>
+
+            </section>
+
+
+        </div>
+
+    </main>
+    <div style="text-align:center; margin:30px 0;">
+    <a href="/verify-certificate"
+       class="download-btn">
+        🔐 Verify Certificate
+    </a>
+</div>
+
+
+    <!-- Footer -->
+    <footer>
+
+        <p>
+            © 2026 CAPACITY CONNECT | Digital Learning Portal
+        </p>
+
+    </footer>
+
+
+    <!-- Certificate Status Script -->
+    <script>
+
+        // Python
+        const pythonProgress =
+            localStorage.getItem("pythonProgress");
+
+        const pythonStatus =
+            document.getElementById("pythonCertificateStatus");
+
+        if (pythonProgress === "100") {
+
+            pythonStatus.innerText =
+                "✅ Certificate Available";
+
+            pythonStatus.style.color = "green";
+
+        } else {
+
+            pythonStatus.innerText =
+                "🔒 Complete Python Quiz to unlock certificate";
+
+            pythonStatus.style.color = "red";
+        }
+
+
+        // Java
+        const javaProgress =
+            localStorage.getItem("javaProgress");
+
+        const javaStatus =
+            document.getElementById("javaCertificateStatus");
+
+        if (javaProgress === "100") {
+
+            javaStatus.innerText =
+                "✅ Certificate Available";
+
+            javaStatus.style.color = "green";
+
+        } else {
+
+            javaStatus.innerText =
+                "🔒 Complete Java Quiz to unlock certificate";
+
+            javaStatus.style.color = "red";
+        }
+
+
+        // Web Development
+        const webProgress =
+            localStorage.getItem("webProgress");
+
+        const webStatus =
+            document.getElementById("webCertificateStatus");
+
+        if (webProgress === "100") {
+
+            webStatus.innerText =
+                "✅ Certificate Available";
+
+            webStatus.style.color = "green";
+
+        } else {
+
+            webStatus.innerText =
+                "🔒 Complete Web Development Quiz to unlock certificate";
+
+            webStatus.style.color = "red";
+        }
+
+
+        // Data Analytics
+        const dataProgress =
+            localStorage.getItem("dataProgress");
+
+        const dataStatus =
+            document.getElementById("dataCertificateStatus");
+
+        if (dataProgress === "100") {
+
+            dataStatus.innerText =
+                "✅ Certificate Available";
+
+            dataStatus.style.color = "green";
+
+        } else {
+
+            dataStatus.innerText =
+                "🔒 Complete Data Analytics Quiz to unlock certificate";
+
+            dataStatus.style.color = "red";
+        }
+
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>My Progress - CAPACITY CONNECT</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f7fb;
+            color: #222;
+        }
+
+        /* NAVBAR */
+        nav {
+            background: #173b67;
+            color: white;
+            padding: 18px 7%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            padding: 9px 14px;
+            border-radius: 6px;
+        }
+
+        .nav-links a:hover {
+            background: #0f2948;
+        }
+
+        .logout {
+            background: white;
+            color: #173b67 !important;
+            font-weight: bold;
+        }
+
+        /* HEADER */
+        .header {
+            background: linear-gradient(135deg, #173b67, #285a8f);
+            color: white;
+            text-align: center;
+            padding: 55px 20px;
+        }
+
+        .header-icon {
+            font-size: 55px;
+            margin-bottom: 12px;
+        }
+
+        .header h1 {
+            font-size: 38px;
+            margin-bottom: 12px;
+        }
+
+        .header p {
+            font-size: 17px;
+            opacity: 0.9;
+        }
+
+        /* MAIN */
+        .container {
+            max-width: 1000px;
+            margin: 45px auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            color: #173b67;
+            font-size: 28px;
+            margin-bottom: 30px;
+        }
+
+        /* OVERALL PROGRESS */
+        .overall {
+            background: white;
+            padding: 30px;
+            border-radius: 14px;
+            box-shadow: 0 5px 18px rgba(0,0,0,0.08);
+            margin-bottom: 30px;
+        }
+
+        .overall-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .overall h2 {
+            color: #173b67;
+            font-size: 23px;
+        }
+
+        .percentage {
+            color: #173b67;
+            font-size: 28px;
+            font-weight: bold;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 22px;
+            background: #e1e5ea;
+            border-radius: 20px;
+            overflow: hidden;
+        }
+
+        .progress {
+            height: 100%;
+            width: 65%;
+            background: #173b67;
+            border-radius: 20px;
+        }
+
+        .overall p {
+            color: #666;
+            margin-top: 12px;
+        }
+
+        /* COURSE CARDS */
+        .course-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+
+        .course {
+            background: white;
+            padding: 28px;
+            border-radius: 14px;
+            box-shadow: 0 5px 18px rgba(0,0,0,0.08);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .course:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+        }
+
+        .course-header {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+
+        .course-icon {
+            font-size: 35px;
+        }
+
+        .course h3 {
+            color: #173b67;
+            font-size: 21px;
+        }
+
+        .course p {
+            color: #666;
+            margin-bottom: 12px;
+        }
+
+        .course-bar {
+            width: 100%;
+            height: 15px;
+            background: #e1e5ea;
+            border-radius: 20px;
+            overflow: hidden;
+        }
+
+        .course-progress {
+            height: 100%;
+            background: #173b67;
+            border-radius: 20px;
+        }
+
+        .python {
+            width: 80%;
+        }
+
+        .java {
+            width: 60%;
+        }
+
+        .web {
+            width: 70%;
+        }
+
+        .data {
+            width: 50%;
+        }
+
+        .progress-text {
+            text-align: right;
+            color: #173b67 !important;
+            font-weight: bold;
+            margin-top: 8px;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #173b67;
+            color: white;
+            text-align: center;
+            padding: 22px;
+            margin-top: 50px;
+        }
+
+        /* MOBILE */
+        @media (max-width: 750px) {
+
+            nav {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+
+            .course-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .header h1 {
+                font-size: 30px;
+            }
+        }
+
+        @media (max-width: 500px) {
+
+            .nav-links {
+                justify-content: center;
+            }
+
+            .header {
+                padding: 45px 20px;
+            }
+
+            .header h1 {
+                font-size: 27px;
+            }
+
+            .overall-top {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 8px;
+            }
+        }
+        .course-status {
+    margin-top: 10px;
+    font-weight: bold;
+    color: #173b67;
+}
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVIGATION -->
+    <nav>
+
+        <div class="logo">
+            CAPACITY CONNECT
+        </div>
+
+        <div class="nav-links">
+
+            <a href="http://127.0.0.1:5000/dashboard">
+                Dashboard
+            </a>
+
+            <a href="http://127.0.0.1:5000/courses">
+                Courses
+            </a>
+
+            <a href="http://127.0.0.1:5000/profile">
+                Profile
+            </a>
+
+            <a href="http://127.0.0.1:5000/logout" class="logout">
+                Logout
+            </a>
+
+        </div>
+
+    </nav>
+
+
+    <!-- HEADER -->
+    <section class="header">
+
+        <div class="header-icon">
+            📈
+        </div>
+
+        <h1>
+            My Learning Progress
+        </h1>
+
+        <p>
+            Track your learning journey and monitor your course completion.
+        </p>
+
+    </section>
+
+
+    <!-- MAIN CONTENT -->
+    <main class="container">
+
+        <h2 class="section-title">
+            Your Learning Statistics
+        </h2>
+
+
+        <!-- OVERALL -->
+        <section class="overall">
+
+            <div class="overall-top">
+
+                <h2>
+                    Overall Progress
+                </h2>
+
+                <div class="percentage" id="overallPercentage">0%</div>
+
+            </div>
+
+            <div class="progress-bar">
+
+                <div class="progress" id="overallProgressBar"></div>
+
+            </div>
+
+            <p>
+                Keep learning! You are making good progress.
+            </p>
+
+        </section>
+
+
+        <!-- COURSE PROGRESS -->
+        <div class="course-grid">
+
+
+            <!-- PYTHON -->
+            <section class="course">
+
+                <div class="course-header">
+
+                    <div class="course-icon">
+                        🐍
+                    </div>
+
+                    <h3>
+                        Python Programming
+                    </h3>
+
+                </div>
+
+                <p>
+                    Course completion
+                </p>
+
+                <div class="course-bar">
+
+                    <div class="course-progress python" id="pythonProgressBar"></div>
+
+                </div>
+
+                <p class="progress-text">
+                    80% Completed
+                </p>
+                <div class="course-status" id="pythonStatus">
+    Quiz not attempted
+</div>
+
+            </section>
+
+
+            <!-- JAVA -->
+            <section class="course">
+
+                <div class="course-header">
+
+                    <div class="course-icon">
+                        ☕
+                    </div>
+
+                    <h3>
+                        Java Programming
+                    </h3>
+
+                </div>
+
+                <p>
+                    Course completion
+                </p>
+
+                <div class="course-bar">
+
+                    <div class="course-progress java" id="javaProgressBar"></div>
+
+                </div>
+
+                <p class="progress-text">
+                    60% Completed
+                </p>
+                <div class="course-status" id="javaStatus">
+    ⏳ Quiz not attempted
+</div>
+
+            </section>
+
+
+            <!-- WEB -->
+            <section class="course">
+
+                <div class="course-header">
+
+                    <div class="course-icon">
+                        🌐
+                    </div>
+
+                    <h3>
+                        Web Development
+                    </h3>
+
+                </div>
+
+                <p>
+                    Course completion
+                </p>
+
+                <div class="course-bar">
+
+                    <div class="course-progress web" id="webProgressBar"></div>
+
+                </div>
+
+                <p class="progress-text">
+                    70% Completed
+                </p>
+                <div class="course-status" id="webStatus">
+    ⏳ Quiz not attempted
+</div>
+
+            </section>
+
+
+            <!-- DATA -->
+            <section class="course">
+
+                <div class="course-header">
+
+                    <div class="course-icon">
+                        📊
+                    </div>
+
+                    <h3>
+                        Data Analytics
+                    </h3>
+
+                </div>
+
+                <p>
+                    Course completion
+                </p>
+
+                <div class="course-bar">
+
+                    <div class="course-progress data" id="dataProgressBar"></div>
+
+                </div>
+
+                <p class="progress-text">
+                    50% Completed
+                </p>
+                <div class="course-status" id="dataStatus">
+    ⏳ Quiz not attempted
+</div>
+
+            </section>
+
+        </div>
+
+    </main>
+
+
+    <!-- FOOTER -->
+    <footer>
+
+        <p>
+            © 2026 CAPACITY CONNECT | Digital Learning Portal
+        </p>
+
+    </footer>
+    <script>
+    const pythonProgress = localStorage.getItem("pythonProgress");
+
+    const pythonStatus = document.getElementById("pythonStatus");
+    const pythonProgressBar = document.getElementById("pythonProgressBar");
+
+    if (pythonProgress === "100") {
+
+        pythonStatus.innerText = "✅ Quiz Completed - Score: 100%";
+        pythonProgressBar.style.width = "100%";
+
+    } else if (pythonProgress === "0") {
+
+        pythonStatus.innerText = "❌ Quiz Attempted - Try Again";
+        pythonProgressBar.style.width = "0%";
+
+    } else {
+
+        pythonStatus.innerText = "⏳ Quiz not attempted";
+        pythonProgressBar.style.width = "80%";
+
+    }
+    const javaProgress = localStorage.getItem("javaProgress");
+
+const javaStatus = document.getElementById("javaStatus");
+const javaProgressBar = document.getElementById("javaProgressBar");
+
+if (javaProgress === "100") {
+
+    javaStatus.innerText = "✅ Quiz Completed - Score: 100%";
+    javaProgressBar.style.width = "100%";
+
+} else if (javaProgress === "0") {
+
+    javaStatus.innerText = "❌ Quiz Attempted - Try Again";
+    javaProgressBar.style.width = "0%";
+
+} else {
+
+    javaStatus.innerText = "⏳ Quiz not attempted";
+    javaProgressBar.style.width = "60%";
+
+}
+const webProgress = localStorage.getItem("webProgress");
+
+const webStatus = document.getElementById("webStatus");
+const webProgressBar = document.getElementById("webProgressBar");
+
+if (webProgress === "100") {
+
+    webStatus.innerText = "✅ Quiz Completed - Score: 100%";
+    webProgressBar.style.width = "100%";
+
+} else if (webProgress === "0") {
+
+    webStatus.innerText = "❌ Quiz Attempted - Try Again";
+    webProgressBar.style.width = "0%";
+
+} else {
+
+    webStatus.innerText = "⏳ Quiz not attempted";
+    webProgressBar.style.width = "70%";
+
+}
+const dataProgress = localStorage.getItem("dataProgress");
+
+const dataStatus = document.getElementById("dataStatus");
+const dataProgressBar = document.getElementById("dataProgressBar");
+
+if (dataProgress === "100") {
+
+    dataStatus.innerText = "✅ Quiz Completed - Score: 100%";
+    dataProgressBar.style.width = "100%";
+
+} else if (dataProgress === "0") {
+
+    dataStatus.innerText = "❌ Quiz Attempted - Try Again";
+    dataProgressBar.style.width = "0%";
+
+} else {
+
+    dataStatus.innerText = "⏳ Quiz not attempted";
+    dataProgressBar.style.width = "50%";
+
+}
+const python = parseInt(localStorage.getItem("pythonProgress")) || 0;
+const java = parseInt(localStorage.getItem("javaProgress")) || 0;
+const web = parseInt(localStorage.getItem("webProgress")) || 0;
+const data = parseInt(localStorage.getItem("dataProgress")) || 0;
+
+const overall = Math.round(
+    (python + java + web + data) / 4
+);
+
+document.getElementById("overallPercentage").innerText =
+    overall + "%";
+
+document.getElementById("overallProgressBar").style.width =
+    overall + "%";
+</script>
+
+</body>
+</html>

@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>My Profile - CAPACITY CONNECT</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f7fb;
+            color: #222;
+        }
+
+        nav {
+            background: #173b67;
+            color: white;
+            padding: 18px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            font-size: 23px;
+            font-weight: bold;
+        }
+
+        nav div:last-child {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 8px 14px;
+            border-radius: 6px;
+        }
+
+        nav a:hover {
+            background: #0f2948;
+        }
+
+        .logout {
+            background: white;
+            color: #173b67 !important;
+            font-weight: bold;
+        }
+
+        .profile-header {
+            background: white;
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .profile-icon {
+            font-size: 70px;
+            margin-bottom: 10px;
+        }
+
+        .profile-header h1 {
+            color: #173b67;
+            margin-bottom: 8px;
+        }
+
+        .profile-header p {
+            color: #666;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .profile-card {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .profile-card h2 {
+            color: #173b67;
+            margin-bottom: 20px;
+        }
+
+        .info {
+            padding: 15px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .info:last-child {
+            border-bottom: none;
+        }
+
+        .info strong {
+            display: inline-block;
+            width: 150px;
+            color: #173b67;
+        }
+
+        .buttons {
+            margin-top: 25px;
+            text-align: center;
+        }
+
+        .buttons a {
+            display: inline-block;
+            padding: 11px 20px;
+            margin: 5px;
+            background: #173b67;
+            color: white;
+            text-decoration: none;
+            border-radius: 6px;
+        }
+
+        .buttons a:hover {
+            background: #0f2948;
+        }
+
+        footer {
+            background: #173b67;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 50px;
+        }
+
+        @media (max-width: 600px) {
+
+            nav {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .info strong {
+                width: 100%;
+                margin-bottom: 5px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav>
+
+        <div class="logo">
+            CAPACITY CONNECT
+        </div>
+
+        <div>
+
+            <a href="http://127.0.0.1:5000/dashboard">
+                Dashboard
+            </a>
+
+            <a href="http://127.0.0.1:5000/courses">
+                Courses
+            </a>
+
+            <a href="http://127.0.0.1:5000/profile">
+                Profile
+            </a>
+
+            <a href="http://127.0.0.1:5000/logout" class="logout">
+                Logout
+            </a>
+
+        </div>
+
+    </nav>
+
+
+    <!-- Profile Header -->
+    <section class="profile-header">
+
+        <div class="profile-icon">
+            👤
+        </div>
+
+        <h1>My Profile</h1>
+
+        <p>
+            View your personal information and learning details.
+        </p>
+
+    </section>
+
+
+    <!-- Profile Information -->
+    <main class="container">
+
+        <section class="profile-card">
+
+            <h2>Profile Information</h2>
+
+            <div class="info">
+                <strong>Name:</strong>
+                Kiran
+            </div>
+
+            <div class="info">
+                <strong>Email:</strong>
+                kiran@example.com
+            </div>
+
+            <div class="info">
+                <strong>Course:</strong>
+                Engineering
+            </div>
+
+            <div class="info">
+                <strong>Platform:</strong>
+                CAPACITY CONNECT
+            </div>
+
+            <div class="buttons">
+
+                <a href="http://127.0.0.1:5000/dashboard">
+                    Dashboard
+                </a>
+
+                <a href="http://127.0.0.1:5000/courses">
+                    Courses
+                </a>
+
+                <a href="http://127.0.0.1:5000/progress">
+                    My Progress
+                </a>
+
+                <a href="http://127.0.0.1:5000/certificates">
+                    Certificates
+                </a>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <footer>
+
+        <p>
+            © 2026 CAPACITY CONNECT | Digital Learning Portal
+        </p>
+
+    </footer>
+
+</body>
+</html>

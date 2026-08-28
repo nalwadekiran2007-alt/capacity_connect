@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Courses - CAPACITY CONNECT</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f7fb;
+            color: #222;
+        }
+
+        /* NAVBAR */
+        nav {
+            background: #173b67;
+            color: white;
+            padding: 18px 7%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 12px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .nav-links a {
+            color: white;
+            text-decoration: none;
+            padding: 9px 14px;
+            border-radius: 6px;
+            font-size: 15px;
+        }
+
+        .nav-links a:hover {
+            background: #0f2948;
+        }
+
+        .logout {
+            background: white;
+            color: #173b67 !important;
+            font-weight: bold;
+        }
+
+        /* HEADER */
+        .header {
+            background: linear-gradient(135deg, #173b67, #285a8f);
+            color: white;
+            text-align: center;
+            padding: 55px 20px;
+        }
+
+        .header-icon {
+            font-size: 55px;
+            margin-bottom: 12px;
+        }
+
+        .header h1 {
+            font-size: 38px;
+            margin-bottom: 12px;
+        }
+
+        .header p {
+            font-size: 17px;
+            opacity: 0.9;
+        }
+
+        /* COURSES */
+        .courses-container {
+            max-width: 1100px;
+            margin: 45px auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            color: #173b67;
+            font-size: 28px;
+            margin-bottom: 30px;
+        }
+
+        .course-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+
+        .course-card {
+            background: white;
+            padding: 30px;
+            border-radius: 14px;
+            text-align: center;
+            box-shadow: 0 5px 18px rgba(0,0,0,0.08);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .course-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.12);
+        }
+
+        .course-icon {
+            font-size: 55px;
+            margin-bottom: 15px;
+        }
+
+        .course-card h2 {
+            color: #173b67;
+            font-size: 24px;
+            margin-bottom: 12px;
+        }
+
+        .course-card p {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .topics {
+            text-align: left;
+            margin: 0 auto 22px;
+            max-width: 260px;
+        }
+
+        .topics li {
+            margin-bottom: 8px;
+            color: #555;
+        }
+
+        .course-btn {
+            display: inline-block;
+            padding: 11px 22px;
+            background: #173b67;
+            color: white;
+            text-decoration: none;
+            border-radius: 7px;
+            font-weight: bold;
+        }
+
+        .course-btn:hover {
+            background: #0f2948;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #173b67;
+            color: white;
+            text-align: center;
+            padding: 22px;
+            margin-top: 50px;
+        }
+
+        /* MOBILE */
+        @media (max-width: 750px) {
+
+            nav {
+                flex-direction: column;
+                gap: 15px;
+                text-align: center;
+            }
+
+            .course-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .header h1 {
+                font-size: 30px;
+            }
+        }
+
+        @media (max-width: 500px) {
+
+            .nav-links {
+                justify-content: center;
+            }
+
+            .header {
+                padding: 45px 20px;
+            }
+
+            .header h1 {
+                font-size: 27px;
+            }
+
+            .section-title {
+                font-size: 24px;
+            }
+        }
+        .filter-btn {
+    padding: 10px 18px;
+    margin: 5px;
+    border: none;
+    border-radius: 7px;
+    background: #173b67;
+    color: white;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.filter-btn:hover {
+    background: #0f2948;
+}
+    </style>
+</head>
+
+<body>
+
+    <!-- NAVIGATION -->
+    <nav>
+
+        <div class="logo">
+            CAPACITY CONNECT
+        </div>
+
+        <div class="nav-links">
+
+            <a href="http://127.0.0.1:5000/dashboard">
+                Dashboard
+            </a>
+
+            <a href="http://127.0.0.1:5000/courses">
+                Courses
+            </a>
+
+            <a href="http://127.0.0.1:5000/profile">
+                Profile
+            </a>
+
+            <a href="http://127.0.0.1:5000/logout" class="logout">
+                Logout
+            </a>
+
+        </div>
+
+    </nav>
+
+
+    <!-- HEADER -->
+    <section class="header">
+
+        <div class="header-icon">
+            📚
+        </div>
+
+        <h1>
+            Explore Our Courses
+        </h1>
+
+        <p>
+            Learn new skills and build your future with CAPACITY CONNECT.
+        </p>
+
+    </section>
+
+
+    <!-- COURSES -->
+    <main class="courses-container">
+
+        <h2 class="section-title">
+            Available Courses
+        </h2>
+        <!-- COURSE SEARCH -->
+
+<div style="max-width:600px; margin:0 auto 35px;">
+
+    <input
+        type="text"
+        id="courseSearch"
+        placeholder="🔍 Search for a course..."
+        onkeyup="searchCourses()"
+        style="
+            width:100%;
+            padding:15px;
+            border:1px solid #ccc;
+            border-radius:8px;
+            font-size:16px;
+            outline:none;
+        "
+    >
+
+</div>
+<!-- CATEGORY FILTER -->
+
+<div style="
+    text-align:center;
+    margin-bottom:30px;
+">
+
+    <button
+        onclick="filterCourses('all')"
+        class="filter-btn">
+        All
+    </button>
+
+    <button
+        onclick="filterCourses('programming')"
+        class="filter-btn">
+        Programming
+    </button>
+
+    <button
+        onclick="filterCourses('web')"
+        class="filter-btn">
+        Web Development
+    </button>
+
+    <button
+        onclick="filterCourses('data')"
+        class="filter-btn">
+        Data Analytics
+    </button>
+
+</div>
+
+        <div class="course-grid">
+
+
+            <!-- PYTHON -->
+           <div class="course-card" data-category="programming">
+
+                <div class="course-icon">
+                    🐍
+                </div>
+
+                <h2>
+                    Python Programming
+                </h2>
+
+                <p>
+                    Learn Python from basics to practical programming
+                    concepts.
+                </p>
+
+                <ul class="topics">
+                    <li>Introduction to Python</li>
+                    <li>Variables & Data Types</li>
+                    <li>If-Else & Loops</li>
+                    <li>Functions</li>
+                </ul>
+
+                <a
+                    href="http://127.0.0.1:5000/python-course"
+                    class="course-btn">
+                    Start Course
+                </a>
+
+            </div>
+
+
+            <!-- JAVA -->
+            <div class="course-card" data-category="programming">
+
+                <div class="course-icon">
+                    ☕
+                </div>
+
+                <h2>
+                    Java Programming
+                </h2>
+
+                <p>
+                    Learn Java programming and understand
+                    object-oriented concepts.
+                </p>
+
+                <ul class="topics">
+                    <li>Java Basics</li>
+                    <li>Variables & Data Types</li>
+                    <li>If-Else & Loops</li>
+                    <li>Classes & Objects</li>
+                </ul>
+
+                <a
+                    href="http://127.0.0.1:5000/java-course"
+                    class="course-btn">
+                    Start Course
+                </a>
+
+            </div>
+
+
+            <!-- WEB DEVELOPMENT -->
+            <div class="course-card" data-category="web">
+
+                <div class="course-icon">
+                    🌐
+                </div>
+
+                <h2>
+                    Web Development
+                </h2>
+
+                <p>
+                    Learn HTML, CSS and JavaScript and create
+                    modern websites.
+                </p>
+
+                <ul class="topics">
+                    <li>HTML Basics</li>
+                    <li>CSS Styling</li>
+                    <li>JavaScript</li>
+                    <li>Responsive Design</li>
+                </ul>
+
+                <a
+                    href="http://127.0.0.1:5000/web-course"
+                    class="course-btn">
+                    Start Course
+                </a>
+
+            </div>
+
+
+            <!-- DATA ANALYTICS -->
+           <div class="course-card" data-category="data">
+
+                <div class="course-icon">
+                    📊
+                </div>
+
+                <h2>
+                    Data Analytics
+                </h2>
+
+                <p>
+                    Learn data analysis, visualization and
+                    interpretation.
+                </p>
+
+                <ul class="topics">
+                    <li>Data Analytics Basics</li>
+                    <li>Types of Data</li>
+                    <li>Python for Data Analysis</li>
+                    <li>Data Visualization</li>
+                </ul>
+
+                <a
+                    href="http://127.0.0.1:5000/data-course"
+                    class="course-btn">
+                    Start Course
+                </a>
+
+            </div>
+
+        </div>
+
+    </main>
+
+
+    <!-- FOOTER -->
+    <footer>
+
+        <p>
+            © 2026 CAPACITY CONNECT | Digital Learning Portal
+        </p>
+
+    </footer>
+    <script>
+
+function searchCourses() {
+
+    const searchText =
+        document.getElementById("courseSearch")
+        .value
+        .toLowerCase();
+
+    const courses =
+        document.querySelectorAll(".course-card");
+
+    courses.forEach(function(course) {
+
+        const courseText =
+            course.innerText.toLowerCase();
+
+        if (courseText.includes(searchText)) {
+
+            course.style.display = "block";
+
+        } else {
+
+            course.style.display = "none";
+
+        }
+
+    });
+
+}
+function filterCourses(category) {
+
+    const courses =
+        document.querySelectorAll(".course-card");
+
+    courses.forEach(function(course) {
+
+        const courseCategory =
+            course.getAttribute("data-category");
+
+        if (
+            category === "all" ||
+            courseCategory === category
+        ) {
+
+            course.style.display = "block";
+
+        } else {
+
+            course.style.display = "none";
+
+        }
+
+    });
+
+}
+
+</script>
+
+</body>
+</html>

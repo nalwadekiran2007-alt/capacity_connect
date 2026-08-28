@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Admin Dashboard - CAPACITY CONNECT</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f7fb;
+            color: #222;
+        }
+
+        nav {
+            background: #173b67;
+            color: white;
+            padding: 18px 7%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: bold;
+        }
+
+        .logout {
+            color: white;
+            text-decoration: none;
+            padding: 9px 16px;
+            border-radius: 6px;
+            background: #285a8f;
+        }
+
+        .logout:hover {
+            background: #0f2948;
+        }
+
+        .header {
+            background: linear-gradient(135deg, #173b67, #285a8f);
+            color: white;
+            text-align: center;
+            padding: 50px 20px;
+        }
+
+        .header h1 {
+            font-size: 36px;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            font-size: 17px;
+            opacity: 0.9;
+        }
+
+        .container {
+            max-width: 1100px;
+            margin: 45px auto;
+            padding: 0 20px;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .stat-card {
+            background: white;
+            padding: 25px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 5px 18px rgba(0,0,0,0.08);
+        }
+
+        .stat-icon {
+            font-size: 40px;
+            margin-bottom: 10px;
+        }
+
+        .stat-card h2 {
+            color: #173b67;
+            font-size: 30px;
+            margin-bottom: 5px;
+        }
+
+        .stat-card p {
+            color: #666;
+        }
+
+        .section {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            margin-bottom: 25px;
+            box-shadow: 0 5px 18px rgba(0,0,0,0.08);
+        }
+
+        .section h2 {
+            color: #173b67;
+            margin-bottom: 20px;
+        }
+
+        .course-list {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+
+        .course-item {
+            border: 1px solid #ddd;
+            padding: 18px;
+            border-radius: 8px;
+        }
+
+        .course-item h3 {
+            color: #173b67;
+            margin-bottom: 7px;
+        }
+
+        .course-item p {
+            color: #666;
+        }
+
+        footer {
+            background: #173b67;
+            color: white;
+            text-align: center;
+            padding: 22px;
+            margin-top: 50px;
+        }
+
+        @media (max-width: 800px) {
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+            .course-list {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+        @media (max-width: 500px) {
+
+            nav {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+    <!-- NAVIGATION -->
+
+    <nav>
+
+        <div class="logo">
+            CAPACITY CONNECT
+        </div>
+
+        <a href="/logout"
+           class="logout">
+            Logout
+        </a>
+
+    </nav>
+
+
+    <!-- HEADER -->
+
+    <section class="header">
+
+        <h1>
+            👨‍💻 Admin Dashboard
+        </h1>
+
+        <p>
+            Manage and monitor the CAPACITY CONNECT learning portal.
+        </p>
+
+    </section>
+
+
+    <!-- CONTENT -->
+
+    <main class="container">
+
+
+        <!-- STATISTICS -->
+
+        <div class="stats-grid">
+
+            <div class="stat-card">
+
+                <div class="stat-icon">
+                    👥
+                </div>
+
+                <h2>
+                    {{ user_count }}
+                </h2>
+
+                <p>
+                    Registered Users
+                </p>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon">
+                    📚
+                </div>
+
+                <h2>
+                    {{ course_count}}
+                </h2>
+
+                <p>
+                    Total Courses
+                </p>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon">
+                    🏆
+                </div>
+
+                <h2>
+                    {{certificate_count }}
+                </h2>
+
+                <p>
+                    Certificates
+                </p>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-icon">
+                    📊
+                </div>
+
+                <h2>
+                    100%
+                </h2>
+
+                <p>
+                    Course Completion
+                </p>
+
+            </div>
+
+        </div>
+
+
+        <!-- COURSES -->
+
+        <section class="section">
+
+            <h2>
+                📚 Available Courses
+            </h2>
+
+
+            <div class="course-list">
+
+
+                <div class="course-item">
+
+                    <h3>
+                        🐍 Python Programming
+                    </h3>
+
+                    <p>
+                        Programming fundamentals and Python concepts.
+                    </p>
+
+                </div>
+
+
+                <div class="course-item">
+
+                    <h3>
+                        ☕ Java Programming
+                    </h3>
+
+                    <p>
+                        Java programming and object-oriented concepts.
+                    </p>
+
+                </div>
+
+
+                <div class="course-item">
+
+                    <h3>
+                        🌐 Web Development
+                    </h3>
+
+                    <p>
+                        HTML, CSS and JavaScript web development.
+                    </p>
+
+                </div>
+
+
+                <div class="course-item">
+
+                    <h3>
+                        📊 Data Analytics
+                    </h3>
+
+                    <p>
+                        Data analysis and visualization concepts.
+                    </p>
+
+                </div>
+
+            </div>
+
+        </section>
+        <!-- REGISTERED USERS -->
+
+<section class="section">
+
+    <h2>
+        👥 Registered Users
+    </h2>
+
+    <div style="overflow-x:auto;">
+
+        <table style="
+            width:100%;
+            border-collapse:collapse;
+            text-align:left;
+        ">
+
+            <thead>
+
+                <tr style="
+                    background:#173b67;
+                    color:white;
+                ">
+
+                    <th style="padding:12px;">
+                        ID
+                    </th>
+
+                    <th style="padding:12px;">
+                        Name
+                    </th>
+
+                    <th style="padding:12px;">
+                        Email
+                    </th>
+                    <th style="padding:12px;">
+                        Action
+                    </th>
+
+
+                </tr>
+
+            </thead>
+
+            <tbody>
+
+                {% for user in users %}
+
+                <tr style="
+                    border-bottom:1px solid #ddd;
+                ">
+
+                    <td style="padding:12px;">
+                        {{ user[0] }}
+                    </td>
+
+                    <td style="padding:12px;">
+                        {{ user[1] }}
+                    </td>
+
+                    <td style="padding:12px;">
+                        {{ user[2] }}
+                    </td>
+                    <td style="padding:12px;">
+
+    <a
+        href="/delete-user/{{ user[0] }}"
+        onclick="return confirm('Are you sure you want to delete this user?');"
+        style="
+            background:#d9534f;
+            color:white;
+            padding:8px 12px;
+            border-radius:6px;
+            text-decoration:none;
+            font-weight:bold;
+        ">
+        🗑️ Delete
+    </a>
+
+</td>
+
+                </tr>
+
+                {% endfor %}
+
+            </tbody>
+
+        </table>
+
+    </div>
+
+</section>
+
+
+        <!-- ADMIN INFORMATION -->
+
+        <section class="section">
+
+            <h2>
+                ⚙️ Admin Information
+            </h2>
+
+            <p style="color:#666; line-height:1.7;">
+
+                The Admin Dashboard allows administrators to
+                monitor registered users, courses, learning
+                progress and certificates.
+
+            </p>
+
+        </section>
+
+    </main>
+
+
+    <!-- FOOTER -->
+
+    <footer>
+
+        <p>
+            © 2026 CAPACITY CONNECT | Admin Panel
+        </p>
+
+    </footer>
+
+</body>
+
+</html>

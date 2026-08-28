@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Learning Goals - CAPACITY CONNECT</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f7fb;
+            color: #222;
+        }
+
+        nav {
+            background: #173b67;
+            color: white;
+            padding: 15px 25px;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 8px 12px;
+            border-radius: 5px;
+        }
+
+        nav a:hover {
+            background: rgba(255,255,255,0.15);
+        }
+
+        .header {
+            background: white;
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .header h1 {
+            color: #173b67;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            color: #666;
+        }
+
+        .container {
+            max-width: 850px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .goal-form,
+        .goal-card {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            margin-bottom: 25px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .goal-form h2,
+        .goal-card h2 {
+            color: #173b67;
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 7px;
+            font-weight: bold;
+        }
+
+        input,
+        select {
+            width: 100%;
+            padding: 11px;
+            margin-bottom: 18px;
+            border: 1px solid #ccc;
+            border-radius: 6px;
+            font-size: 15px;
+        }
+
+        button {
+            padding: 11px 22px;
+            background: #173b67;
+            color: white;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 15px;
+        }
+
+        button:hover {
+            background: #0f2948;
+        }
+
+        .goal-info {
+            margin-bottom: 12px;
+            color: #555;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 18px;
+            background: #ddd;
+            border-radius: 10px;
+            overflow: hidden;
+            margin-top: 10px;
+        }
+
+        .progress {
+            height: 100%;
+            width: 0%;
+            background: #173b67;
+            transition: width 0.4s;
+        }
+
+        .progress-text {
+            margin-top: 8px;
+            font-weight: bold;
+            color: #173b67;
+        }
+
+        .delete-btn {
+            background: #b3261e;
+            margin-top: 15px;
+        }
+
+        .delete-btn:hover {
+            background: #8f1d18;
+        }
+
+        #message {
+            margin-top: 15px;
+            font-weight: bold;
+        }
+
+        footer {
+            background: #173b67;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+        }
+
+        @media (max-width: 600px) {
+            nav {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Navigation -->
+    <nav>
+
+        <a href="{{ url_for('dashboard') }}">
+            Dashboard
+        </a>
+
+        <a href="{{ url_for('courses') }}">
+            Courses
+        </a>
+
+        <a href="{{ url_for('progress') }}">
+            Progress
+        </a>
+
+        <a href="{{ url_for('profile') }}">
+            Profile
+        </a>
+
+        <a href="{{ url_for('logout') }}">
+            Logout
+        </a>
+
+    </nav>
+
+
+    <!-- Header -->
+    <section class="header">
+
+        <h1>🎯 Learning Goals</h1>
+
+        <p>
+            Set your learning goals and track your progress.
+        </p>
+
+    </section>
+
+
+    <main class="container">
+
+        <!-- Goal Form -->
+        <section class="goal-form">
+
+            <h2>Set a New Goal</h2>
+
+            <label for="goal">
+                Goal Title
+            </label>
+
+            <input
+                type="text"
+                id="goal"
+                placeholder="Example: Complete Python Course"
+            >
+
+
+            <label for="course">
+                Select Course
+            </label>
+
+            <select id="course">
+
+                <option value="">
+                    Select a course
+                </option>
+
+                <option value="Python Programming">
+                    Python Programming
+                </option>
+
+                <option value="Java Programming">
+                    Java Programming
+                </option>
+
+                <option value="Web Development">
+                    Web Development
+                </option>
+
+                <option value="Data Analytics">
+                    Data Analytics
+                </option>
+
+            </select>
+
+
+            <label for="date">
+                Target Date
+            </label>
+
+            <input
+                type="date"
+                id="date"
+            >
+
+
+            <button onclick="addGoal()">
+                Save Goal
+            </button>
+
+            <div id="message"></div>
+
+        </section>
+
+
+        <!-- Goals -->
+        <section>
+
+            <div id="goals"></div>
+
+        </section>
+
+    </main>
+
+
+    <!-- Footer -->
+    <footer>
+
+        <p>
+            © 2026 CAPACITY CONNECT | Digital Learning Portal
+        </p>
+
+    </footer>
+
+
+    <script>
+
+        function addGoal() {
+
+            const goal = document.getElementById("goal").value;
+            const course = document.getElementById("course").value;
+            const date = document.getElementById("date").value;
+            const message = document.getElementById("message");
+
+            if (goal === "" || course === "" || date === "") {
+
+                message.innerText = "Please fill all fields.";
+
+                return;
+            }
+
+            const goalCard = document.createElement("div");
+
+            goalCard.className = "goal-card";
+
+            goalCard.innerHTML = `
+
+                <h2>🎯 ${goal}</h2>
+
+                <p class="goal-info">
+                    📚 Course: <strong>${course}</strong>
+                </p>
+
+                <p class="goal-info">
+                    📅 Target Date: <strong>${date}</strong>
+                </p>
+
+                <p class="goal-info">
+                    Progress
+                </p>
+
+                <div class="progress-bar">
+                    <div class="progress"></div>
+                </div>
+
+                <div class="progress-text">
+                    0% Completed
+                </div>
+
+                <button onclick="deleteGoal(this)" class="delete-btn">
+                    Delete Goal
+                </button>
+
+            `;
+
+            document.getElementById("goals").appendChild(goalCard);
+
+            document.getElementById("goal").value = "";
+            document.getElementById("course").value = "";
+            document.getElementById("date").value = "";
+
+            message.innerText = "Goal added successfully! 🎉";
+        }
+
+
+        function deleteGoal(button) {
+
+            button.parentElement.remove();
+
+        }
+
+    </script>
+
+</body>
+</html>

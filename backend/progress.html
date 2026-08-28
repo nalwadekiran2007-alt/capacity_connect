@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>My Progress - CAPACITY CONNECT</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f7fb;
+            color: #222;
+        }
+
+        nav {
+            background: #173b67;
+            color: white;
+            padding: 18px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 23px;
+            font-weight: bold;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+        }
+
+        .header {
+            background: white;
+            text-align: center;
+            padding: 40px 20px;
+        }
+
+        .header h1 {
+            color: #173b67;
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            color: #666;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 0 20px;
+        }
+
+        .overall {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            margin-bottom: 25px;
+        }
+
+        .overall h2 {
+            color: #173b67;
+            margin-bottom: 15px;
+        }
+
+        .percentage {
+            font-size: 32px;
+            font-weight: bold;
+            color: #173b67;
+            margin-bottom: 10px;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 20px;
+            background: #ddd;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .progress {
+            height: 100%;
+            width: 65%;
+            background: #173b67;
+        }
+
+        .course {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            margin-bottom: 20px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .course h3 {
+            color: #173b67;
+            margin-bottom: 10px;
+        }
+
+        .course p {
+            color: #666;
+            margin-bottom: 12px;
+        }
+
+        .course-bar {
+            width: 100%;
+            height: 15px;
+            background: #ddd;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .course-progress {
+            height: 100%;
+            background: #173b67;
+        }
+
+        .python {
+            width: 80%;
+        }
+
+        .java {
+            width: 60%;
+        }
+
+        .web {
+            width: 70%;
+        }
+
+        .data {
+            width: 50%;
+        }
+
+        footer {
+            background: #173b67;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav>
+
+        <div class="logo">
+            CAPACITY CONNECT
+        </div>
+
+        <div>
+            <a href="dashboard.html">Dashboard</a>
+            <a href="courses.html">Courses</a>
+        </div>
+
+    </nav>
+
+
+    <section class="header">
+
+        <h1>📈 My Learning Progress</h1>
+
+        <p>
+            Track your progress across all your courses.
+        </p>
+
+    </section>
+
+
+    <main class="container">
+
+
+        <!-- Overall Progress -->
+        <section class="overall">
+
+            <h2>Overall Progress</h2>
+
+            <div class="percentage">65%</div>
+
+            <div class="progress-bar">
+                <div class="progress"></div>
+            </div>
+
+        </section>
+
+
+        <!-- Python -->
+        <section class="course">
+
+            <h3>🐍 Python Programming</h3>
+
+            <p>80% Completed</p>
+
+            <div class="course-bar">
+                <div class="course-progress python"></div>
+            </div>
+
+        </section>
+
+
+        <!-- Java -->
+        <section class="course">
+
+            <h3>☕ Java Programming</h3>
+
+            <p>60% Completed</p>
+
+            <div class="course-bar">
+                <div class="course-progress java"></div>
+            </div>
+
+        </section>
+
+
+        <!-- Web Development -->
+        <section class="course">
+
+            <h3>🌐 Web Development</h3>
+
+            <p>70% Completed</p>
+
+            <div class="course-bar">
+                <div class="course-progress web"></div>
+            </div>
+
+        </section>
+
+
+        <!-- Data Analytics -->
+        <section class="course">
+
+            <h3>📊 Data Analytics</h3>
+
+            <p>50% Completed</p>
+
+            <div class="course-bar">
+                <div class="course-progress data"></div>
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+    <footer>
+
+        <p>
+            © 2026 CAPACITY CONNECT | Digital Learning Portal
+        </p>
+
+    </footer>
+
+</body>
+</html>
