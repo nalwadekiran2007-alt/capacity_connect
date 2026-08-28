@@ -82,14 +82,15 @@ def register():
     except Exception as err:
         return f"Registration Failed: {err}"
 
-    @app.route("/login")
-    def login_page():
-     return render_template("login.html")
+    
 
 
 # =====================================================
 # LOGIN
 # =====================================================
+@app.route("/login")
+def login_page():
+     return render_template("login.html")
 
 @app.route("/login", methods=["POST"])
 def login():
