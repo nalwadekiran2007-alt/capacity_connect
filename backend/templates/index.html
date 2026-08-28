@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,7 +20,6 @@
             color: #222;
         }
 
-        /* Navbar */
         nav {
             background: #173b67;
             padding: 18px 8%;
@@ -50,7 +50,6 @@
             text-decoration: underline;
         }
 
-        /* Hero Section */
         .hero {
             min-height: 450px;
             display: flex;
@@ -102,7 +101,6 @@
             font-size: 80px;
         }
 
-        /* Courses */
         .courses {
             padding: 60px 8%;
         }
@@ -139,7 +137,6 @@
             line-height: 1.5;
         }
 
-        /* Footer */
         footer {
             background: #173b67;
             color: white;
@@ -173,10 +170,10 @@
         <div class="logo">CAPACITY CONNECT</div>
 
         <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Courses</a></li>
-            <li><a href="#">About</a></li>
-            <li><a href="#">Login</a></li>
+            <li><a href="{{ url_for('home') }}">Home</a></li>
+            <li><a href="{{ url_for('courses') }}">Courses</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="{{ url_for('login_page') }}">Login</a></li>
         </ul>
     </nav>
 
@@ -193,8 +190,13 @@
                 their learning progress.
             </p>
 
-            <a href="#" class="btn">Explore Courses</a>
-            <a href="#" class="btn">Get Started</a>
+            <a href="{{ url_for('courses') }}" class="btn">
+                Explore Courses
+            </a>
+
+            <a href="{{ url_for('login_page') }}" class="btn">
+                Get Started
+            </a>
         </div>
 
         <div class="hero-box">
@@ -246,6 +248,22 @@
 
     </section>
 
+    <!-- About Section -->
+    <section id="about" class="courses">
+
+        <h2>About CAPACITY CONNECT</h2>
+
+        <div style="text-align:center; max-width:800px; margin:auto;">
+            <p style="color:#666; line-height:1.7;">
+                CAPACITY CONNECT is a Digital Learning Management
+                Portal designed to help learners develop technical
+                skills, complete courses, track progress and earn
+                certificates.
+            </p>
+        </div>
+
+    </section>
+
     <!-- Footer -->
     <footer>
         <p>© 2026 CAPACITY CONNECT | Digital Learning Portal</p>
@@ -253,3 +271,4 @@
 
 </body>
 </html>
+```
