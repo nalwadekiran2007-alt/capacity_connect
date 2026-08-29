@@ -217,31 +217,31 @@
 
     <nav>
 
-        <div class="logo">
-            CAPACITY CONNECT
-        </div>
+    <div class="logo">
+        CAPACITY CONNECT
+    </div>
 
-        <div class="nav-links">
+    <div class="nav-links">
 
-            <a href="http://127.0.0.1:5000/dashboard">
-                Dashboard
-            </a>
+        <a href="{{ url_for('dashboard') }}">
+            Dashboard
+        </a>
 
-            <a href="http://127.0.0.1:5000/courses">
-                Courses
-            </a>
+        <a href="{{ url_for('courses') }}">
+            Courses
+        </a>
 
-            <a href="http://127.0.0.1:5000/profile">
-                Profile
-            </a>
+        <a href="{{ url_for('profile') }}">
+            Profile
+        </a>
 
-            <a href="http://127.0.0.1:5000/logout" class="logout">
-                Logout
-            </a>
+        <a href="{{ url_for('logout') }}" class="logout">
+            Logout
+        </a>
 
-        </div>
+    </div>
 
-    </nav>
+</nav>
 
 
     <!-- HERO -->
