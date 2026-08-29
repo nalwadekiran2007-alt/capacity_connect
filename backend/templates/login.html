@@ -93,7 +93,7 @@
 
         <p class="subtitle">Login to your account</p>
 
-        <form action="http://127.0.0.1:5000/login" method="POST">
+        <form action="{{ url_for('login') }}" method="POST"></form>
 
             <label for="email">Email</label>
             <input
