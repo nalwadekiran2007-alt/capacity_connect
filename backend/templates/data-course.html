@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -19,7 +20,6 @@
             color: #222;
         }
 
-        /* Navigation */
         nav {
             background: #173b67;
             color: white;
@@ -28,13 +28,13 @@
             justify-content: flex-end;
             align-items: center;
             gap: 8px;
+            flex-wrap: wrap;
         }
 
         nav a {
             color: white;
             text-decoration: none;
             padding: 8px 12px;
-            margin: 0;
             border-radius: 5px;
             font-size: 15px;
         }
@@ -43,7 +43,6 @@
             background: rgba(255, 255, 255, 0.15);
         }
 
-        /* Hero */
         .hero {
             background: white;
             text-align: center;
@@ -65,7 +64,6 @@
             font-size: 17px;
         }
 
-        /* Content */
         .content {
             max-width: 900px;
             margin: 40px auto;
@@ -97,7 +95,6 @@
             color: #555;
         }
 
-        /* Code */
         .code {
             background: #1e1e1e;
             color: white;
@@ -107,7 +104,6 @@
             overflow-x: auto;
         }
 
-        /* Quiz */
         .quiz {
             background: white;
             padding: 25px;
@@ -118,17 +114,36 @@
 
         .quiz h2 {
             color: #173b67;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
+        }
+
+        .question {
+            margin-bottom: 25px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .question p {
+            margin-bottom: 12px;
+            line-height: 1.5;
+        }
+
+        .question label {
+            display: block;
+            margin: 10px 0;
+            color: #444;
+            cursor: pointer;
         }
 
         .quiz button {
-            margin-top: 15px;
-            padding: 11px 20px;
+            margin-top: 10px;
+            padding: 12px 22px;
             background: #173b67;
             color: white;
             border: none;
             border-radius: 6px;
             cursor: pointer;
+            font-size: 16px;
         }
 
         .quiz button:hover {
@@ -136,11 +151,11 @@
         }
 
         #result {
-            margin-top: 15px;
+            margin-top: 20px;
             font-weight: bold;
+            font-size: 18px;
         }
 
-        /* Footer */
         footer {
             background: #173b67;
             color: white;
@@ -149,14 +164,11 @@
             margin-top: 40px;
         }
 
-        /* Mobile */
         @media (max-width: 600px) {
 
             nav {
                 justify-content: center;
-                gap: 4px;
                 padding: 12px 10px;
-                flex-wrap: wrap;
             }
 
             nav a {
@@ -167,6 +179,15 @@
             .hero h1 {
                 font-size: 30px;
             }
+
+            .content {
+                padding: 0 12px;
+            }
+
+            .lesson,
+            .quiz {
+                padding: 20px;
+            }
         }
     </style>
 </head>
@@ -175,11 +196,11 @@
 
     <!-- Navigation -->
     <nav>
-    <a href="{{ url_for('dashboard') }}">Dashboard</a>
-    <a href="{{ url_for('courses') }}">Courses</a>
-    <a href="{{ url_for('profile') }}">Profile</a>
-    <a href="{{ url_for('logout') }}">Logout</a>
-</nav>
+        <a href="{{ url_for('dashboard') }}">Dashboard</a>
+        <a href="{{ url_for('courses') }}">Courses</a>
+        <a href="{{ url_for('profile') }}">Profile</a>
+        <a href="{{ url_for('logout') }}">Logout</a>
+    </nav>
 
 
     <!-- Hero -->
@@ -308,42 +329,265 @@
         </section>
 
 
-        <!-- Quiz -->
+        <!-- QUIZ -->
         <section class="quiz">
 
-            <h2>Quick Quiz 📝</h2>
+            <h2>Data Analytics Quiz 📝</h2>
 
-            <p>
-                <strong>
-                    Which Python library is commonly used for data manipulation?
-                </strong>
-            </p>
 
-            <br>
+            <!-- Question 1 -->
+            <div class="question">
 
-            <label>
-                <input type="radio" name="answer" value="a">
-                Pandas
-            </label>
+                <p>
+                    <strong>1. What is Data Analytics?</strong>
+                </p>
 
-            <br><br>
+                <label>
+                    <input type="radio" name="q1" value="a">
+                    Process of examining data to find useful information
+                </label>
 
-            <label>
-                <input type="radio" name="answer" value="b">
-                Flask
-            </label>
+                <label>
+                    <input type="radio" name="q1" value="b">
+                    Creating websites
+                </label>
 
-            <br><br>
+                <label>
+                    <input type="radio" name="q1" value="c">
+                    Designing games
+                </label>
 
-            <label>
-                <input type="radio" name="answer" value="c">
-                Django
-            </label>
+            </div>
 
-            <br>
 
-            <button onclick="checkAnswer()">
-                Submit Answer
+            <!-- Question 2 -->
+            <div class="question">
+
+                <p>
+                    <strong>2. Which language is widely used for Data Analytics?</strong>
+                </p>
+
+                <label>
+                    <input type="radio" name="q2" value="a">
+                    Python
+                </label>
+
+                <label>
+                    <input type="radio" name="q2" value="b">
+                    HTML
+                </label>
+
+                <label>
+                    <input type="radio" name="q2" value="c">
+                    CSS
+                </label>
+
+            </div>
+
+
+            <!-- Question 3 -->
+            <div class="question">
+
+                <p>
+                    <strong>3. Which Python library is commonly used for data manipulation?</strong>
+                </p>
+
+                <label>
+                    <input type="radio" name="q3" value="a">
+                    Flask
+                </label>
+
+                <label>
+                    <input type="radio" name="q3" value="b">
+                    Pandas
+                </label>
+
+                <label>
+                    <input type="radio" name="q3" value="c">
+                    Django
+                </label>
+
+            </div>
+
+
+            <!-- Question 4 -->
+            <div class="question">
+
+                <p>
+                    <strong>4. Which library is used for numerical computing in Python?</strong>
+                </p>
+
+                <label>
+                    <input type="radio" name="q4" value="a">
+                    NumPy
+                </label>
+
+                <label>
+                    <input type="radio" name="q4" value="b">
+                    Flask
+                </label>
+
+                <label>
+                    <input type="radio" name="q4" value="c">
+                    HTML
+                </label>
+
+            </div>
+
+
+            <!-- Question 5 -->
+            <div class="question">
+
+                <p>
+                    <strong>5. Which library is commonly used for data visualization?</strong>
+                </p>
+
+                <label>
+                    <input type="radio" name="q5" value="a">
+                    Matplotlib
+                </label>
+
+                <label>
+                    <input type="radio" name="q5" value="b">
+                    MySQL
+                </label>
+
+                <label>
+                    <input type="radio" name="q5" value="c">
+                    Flask
+                </label>
+
+            </div>
+
+
+            <!-- Question 6 -->
+            <div class="question">
+
+                <p>
+                    <strong>6. Which chart is useful for comparing categories?</strong>
+                </p>
+
+                <label>
+                    <input type="radio" name="q6" value="a">
+                    Bar Chart
+                </label>
+
+                <label>
+                    <input type="radio" name="q6" value="b">
+                    Text File
+                </label>
+
+                <label>
+                    <input type="radio" name="q6" value="c">
+                    HTML Page
+                </label>
+
+            </div>
+
+
+            <!-- Question 7 -->
+            <div class="question">
+
+                <p>
+                    <strong>7. What is data cleaning?</strong>
+                </p>
+
+                <label>
+                    <input type="radio" name="q7" value="a">
+                    Removing errors and unwanted data
+                </label>
+
+                <label>
+                    <input type="radio" name="q7" value="b">
+                    Creating a website
+                </label>
+
+                <label>
+                    <input type="radio" name="q7" value="c">
+                    Writing CSS
+                </label>
+
+            </div>
+
+
+            <!-- Question 8 -->
+            <div class="question">
+
+                <p>
+                    <strong>8. Which of the following is a type of data?</strong>
+                </p>
+
+                <label>
+                    <input type="radio" name="q8" value="a">
+                    Numerical Data
+                </label>
+
+                <label>
+                    <input type="radio" name="q8" value="b">
+                    Browser Data
+                </label>
+
+                <label>
+                    <input type="radio" name="q8" value="c">
+                    Website Data
+                </label>
+
+            </div>
+
+
+            <!-- Question 9 -->
+            <div class="question">
+
+                <p>
+                    <strong>9. What does data visualization do?</strong>
+                </p>
+
+                <label>
+                    <input type="radio" name="q9" value="a">
+                    Represents data using charts and graphs
+                </label>
+
+                <label>
+                    <input type="radio" name="q9" value="b">
+                    Deletes all data
+                </label>
+
+                <label>
+                    <input type="radio" name="q9" value="c">
+                    Creates a programming language
+                </label>
+
+            </div>
+
+
+            <!-- Question 10 -->
+            <div class="question">
+
+                <p>
+                    <strong>10. What is the purpose of data interpretation?</strong>
+                </p>
+
+                <label>
+                    <input type="radio" name="q10" value="a">
+                    Understanding results and finding insights
+                </label>
+
+                <label>
+                    <input type="radio" name="q10" value="b">
+                    Designing a webpage
+                </label>
+
+                <label>
+                    <input type="radio" name="q10" value="c">
+                    Installing software
+                </label>
+
+            </div>
+
+
+            <!-- Submit Button -->
+            <button type="button" onclick="checkDataQuiz()">
+                Submit Quiz
             </button>
 
             <div id="result"></div>
@@ -365,34 +609,83 @@
 
     <!-- Quiz JavaScript -->
     <script>
-    function checkAnswer() {
 
-        const answer = document.querySelector(
-            'input[name="answer"]:checked'
-        );
+        function checkDataQuiz() {
 
-        const result = document.getElementById("result");
+            const correctAnswers = {
+                q1: "a",
+                q2: "a",
+                q3: "b",
+                q4: "a",
+                q5: "a",
+                q6: "a",
+                q7: "a",
+                q8: "a",
+                q9: "a",
+                q10: "a"
+            };
 
-        if (!answer) {
-            result.innerText = "Please select an answer.";
-            result.style.color = "red";
-            return;
+            let score = 0;
+            let attempted = 0;
+
+            for (let question in correctAnswers) {
+
+                const selected = document.querySelector(
+                    'input[name="' + question + '"]:checked'
+                );
+
+                if (selected) {
+
+                    attempted++;
+
+                    if (selected.value === correctAnswers[question]) {
+                        score++;
+                    }
+                }
+            }
+
+
+            const result = document.getElementById("result");
+
+
+            if (attempted < 10) {
+
+                result.innerText =
+                    "⚠️ Please answer all 10 questions. Attempted: "
+                    + attempted + "/10";
+
+                result.style.color = "red";
+
+                return;
+            }
+
+
+            const percentage = score * 10;
+
+
+            if (percentage >= 50) {
+
+                result.innerText =
+                    "🎉 Quiz Completed! Score: "
+                    + score + "/10 (" + percentage + "%)";
+
+                result.style.color = "green";
+
+            } else {
+
+                result.innerText =
+                    "❌ Score: "
+                    + score + "/10 (" + percentage + "%). Try Again!";
+
+                result.style.color = "red";
+            }
+
+
+            localStorage.setItem("dataProgress", percentage);
+
         }
 
-        if (answer.value === "a") {
-            result.innerText = "Correct Answer! 🎉 Score: 100%";
-            result.style.color = "green";
-
-            localStorage.setItem("dataProgress", "100");
-
-        } else {
-            result.innerText = "Wrong Answer. Try again!";
-            result.style.color = "red";
-
-            localStorage.setItem("dataProgress", "0");
-        }
-    }
-</script>
+    </script>
 
 </body>
 </html>
