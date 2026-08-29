@@ -15,11 +15,9 @@
 
         body {
             font-family: Arial, sans-serif;
-            background: #f5f7fb;
-            color: #1f2937;
+            background: #f4f7fb;
+            color: #222;
         }
-
-        /* NAVBAR */
 
         nav {
             background: #173b67;
@@ -27,12 +25,13 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            gap: 20px;
+            flex-wrap: wrap;
+            gap: 15px;
         }
 
         .logo {
             color: white;
-            font-size: 24px;
+            font-size: 23px;
             font-weight: bold;
         }
 
@@ -46,139 +45,87 @@
             color: white;
             text-decoration: none;
             padding: 9px 14px;
-            border-radius: 7px;
-            font-size: 14px;
+            border-radius: 5px;
         }
 
         .nav-links a:hover {
-            background: #285a8f;
+            background: rgba(255,255,255,0.15);
         }
 
         .logout {
+            background: #c0392b;
+        }
+
+        .container {
+            width: 84%;
+            max-width: 1200px;
+            margin: 40px auto;
+        }
+
+        .welcome {
             background: white;
-            color: #173b67 !important;
-            font-weight: bold;
+            padding: 35px;
+            border-radius: 14px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            margin-bottom: 30px;
         }
 
-        /* HERO */
-
-        .hero {
-            background: linear-gradient(135deg, #173b67, #2d6ca2);
-            color: white;
-            text-align: center;
-            padding: 70px 20px;
-        }
-
-        .hero-icon {
-            font-size: 60px;
-            margin-bottom: 15px;
-        }
-
-        .hero h1 {
-            font-size: 40px;
+        .welcome h1 {
+            color: #173b67;
             margin-bottom: 12px;
         }
 
-        .hero p {
-            font-size: 18px;
-            opacity: 0.9;
+        .welcome p {
+            color: #666;
+            font-size: 17px;
         }
 
-        /* DASHBOARD */
-
-        .dashboard {
-            max-width: 1150px;
-            margin: 50px auto;
-            padding: 0 20px;
-        }
-
-        .section-title {
-            text-align: center;
-            color: #173b67;
-            font-size: 30px;
-            margin-bottom: 35px;
-        }
-
-        .card-container {
+        .cards {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 25px;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 22px;
         }
 
         .card {
             background: white;
-            padding: 32px 25px;
-            border-radius: 16px;
-            text-align: center;
-            box-shadow: 0 6px 20px rgba(0,0,0,0.08);
-            transition: 0.3s;
-        }
-
-        .card:hover {
-            transform: translateY(-7px);
-            box-shadow: 0 12px 28px rgba(0,0,0,0.13);
-        }
-
-        .card-icon {
-            font-size: 48px;
-            margin-bottom: 15px;
+            padding: 28px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
         }
 
         .card h2 {
             color: #173b67;
-            font-size: 22px;
-            margin-bottom: 12px;
+            margin-bottom: 10px;
         }
 
         .card p {
-            color: #667085;
-            line-height: 1.6;
-            min-height: 55px;
-            margin-bottom: 22px;
+            color: #666;
+            line-height: 1.5;
+            margin-bottom: 20px;
         }
 
-        .card a {
+        .btn {
             display: inline-block;
             background: #173b67;
             color: white;
             text-decoration: none;
-            padding: 11px 22px;
-            border-radius: 8px;
-            font-weight: bold;
-            transition: 0.2s;
+            padding: 11px 18px;
+            border-radius: 6px;
         }
 
-        .card a:hover {
-            background: #285a8f;
+        .btn:hover {
+            background: #0f2948;
         }
-
-        /* FOOTER */
 
         footer {
             background: #173b67;
             color: white;
             text-align: center;
-            padding: 25px;
-            margin-top: 60px;
+            padding: 20px;
+            margin-top: 50px;
         }
 
-        /* TABLET */
-
-        @media (max-width: 900px) {
-
-            .card-container {
-                grid-template-columns: repeat(2, 1fr);
-            }
-
-            .hero h1 {
-                font-size: 32px;
-            }
-        }
-
-        /* MOBILE */
-
-        @media (max-width: 600px) {
-
+        @media (max-width: 700px) {
             nav {
                 flex-direction: column;
                 text-align: center;
@@ -188,24 +135,8 @@
                 justify-content: center;
             }
 
-            .card-container {
-                grid-template-columns: 1fr;
-            }
-
-            .hero {
-                padding: 50px 20px;
-            }
-
-            .hero h1 {
-                font-size: 28px;
-            }
-
-            .hero p {
-                font-size: 16px;
-            }
-
-            .section-title {
-                font-size: 25px;
+            .container {
+                width: 92%;
             }
         }
     </style>
@@ -213,219 +144,127 @@
 
 <body>
 
-    <!-- NAVIGATION -->
-
+    <!-- Navigation -->
     <nav>
 
-    <div class="logo">
-        CAPACITY CONNECT
-    </div>
-
-    <div class="nav-links">
-
-        <a href="{{ url_for('dashboard') }}">
-            Dashboard
-        </a>
-
-        <a href="{{ url_for('courses') }}">
-            Courses
-        </a>
-
-        <a href="{{ url_for('profile') }}">
-            Profile
-        </a>
-
-        <a href="{{ url_for('logout') }}" class="logout">
-            Logout
-        </a>
-
-    </div>
-
-</nav>
-
-
-    <!-- HERO -->
-
-    <section class="hero">
-
-        <div class="hero-icon">
-            🎓
+        <div class="logo">
+            CAPACITY CONNECT
         </div>
 
-        <h1>
-            Welcome to CAPACITY CONNECT
-        </h1>
+        <div class="nav-links">
 
-        <p>
-            Continue your learning journey and build your skills.
-        </p>
+            <a href="{{ url_for('dashboard') }}">
+                Dashboard
+            </a>
 
-    </section>
+            <a href="{{ url_for('courses') }}">
+                Courses
+            </a>
+
+            <a href="{{ url_for('profile') }}">
+                Profile
+            </a>
+
+            <a href="{{ url_for('logout') }}" class="logout">
+                Logout
+            </a>
+
+        </div>
+
+    </nav>
 
 
-    <!-- DASHBOARD -->
+    <!-- Main Dashboard -->
+    <div class="container">
 
-    <main class="dashboard">
+        <div class="welcome">
 
-        <h2 class="section-title">
-            Learning Dashboard
-        </h2>
+            <h1>Welcome to CAPACITY CONNECT! 🎓</h1>
+
+            <p>
+                Your digital learning dashboard.
+                Continue learning, explore courses,
+                track your progress and manage your profile.
+            </p>
+
+        </div>
 
 
-        <div class="card-container">
+        <div class="cards">
 
-
-            <!-- COURSES -->
-
+            <!-- Courses -->
             <div class="card">
 
-                <div class="card-icon">
-                    📚
-                </div>
-
-                <h2>
-                    My Courses
-                </h2>
+                <h2>📚 Courses</h2>
 
                 <p>
-                    Explore courses and learn new skills
-                    through our digital learning platform.
+                    Explore Python, Java, Web Development
+                    and Data Analytics courses.
                 </p>
 
-                <a href="http://127.0.0.1:5000/courses">
-                    View Courses
+                <a href="{{ url_for('courses') }}" class="btn">
+                    Explore Courses
                 </a>
 
             </div>
 
 
-            <!-- PROGRESS -->
-
+            <!-- Progress -->
             <div class="card">
 
-                <div class="card-icon">
-                    📈
-                </div>
-
-                <h2>
-                    My Progress
-                </h2>
+                <h2>📊 My Progress</h2>
 
                 <p>
-                    Track your learning progress and
-                    course completion.
+                    Track your course progress and
+                    completed learning activities.
                 </p>
 
-                <a href="http://127.0.0.1:5000/progress">
+                <a href="{{ url_for('progress') }}" class="btn">
                     View Progress
                 </a>
 
             </div>
 
 
-            <!-- CERTIFICATES -->
-
+            <!-- Certificates -->
             <div class="card">
 
-                <div class="card-icon">
-                    🏆
-                </div>
-
-                <h2>
-                    Certificates
-                </h2>
+                <h2>🏆 Certificates</h2>
 
                 <p>
-                    View and download certificates
-                    for completed courses.
+                    View and access your course
+                    completion certificates.
                 </p>
 
-                <a href="http://127.0.0.1:5000/certificates">
+                <a href="{{ url_for('certificates') }}" class="btn">
                     View Certificates
                 </a>
 
             </div>
 
 
-            <!-- PROFILE -->
-
+            <!-- Profile -->
             <div class="card">
 
-                <div class="card-icon">
-                    👤
-                </div>
+                <h2>👤 Profile</h2>
 
-                <h2>
+                <p>
+                    View and manage your CAPACITY CONNECT
+                    profile information.
+                </p>
+
+                <a href="{{ url_for('profile') }}" class="btn">
                     My Profile
-                </h2>
-
-                <p>
-                    View your personal information
-                    and learning details.
-                </p>
-
-                <a href="http://127.0.0.1:5000/profile">
-                    View Profile
                 </a>
 
             </div>
-
-
-            <!-- LEARNING GOALS -->
-
-            <div class="card">
-
-                <div class="card-icon">
-                    🎯
-                </div>
-
-                <h2>
-                    Learning Goals
-                </h2>
-
-                <p>
-                    Set your learning goals and
-                    improve your skills continuously.
-                </p>
-
-                <a href="http://127.0.0.1:5000/learning-goals">
-                    Start Learning
-                </a>
-
-            </div>
-
-
-            <!-- LEARNING SUPPORT -->
-
-            <div class="card">
-
-                <div class="card-icon">
-                    💡
-                </div>
-
-                <h2>
-                    Learning Support
-                </h2>
-
-                <p>
-                    Access learning resources and
-                    continue developing your knowledge.
-                </p>
-
-                <a href="http://127.0.0.1:5000/courses">
-                    Explore
-                </a>
-
-            </div>
-
 
         </div>
 
-    </main>
+    </div>
 
 
-    <!-- FOOTER -->
-
+    <!-- Footer -->
     <footer>
 
         <p>
