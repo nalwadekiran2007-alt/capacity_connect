@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +8,7 @@
     <title>Java Course - CAPACITY CONNECT</title>
 
     <style>
+
         * {
             box-sizing: border-box;
             margin: 0;
@@ -19,23 +21,28 @@
             color: #222;
         }
 
-        /* Navigation */
+        /* ================= NAVIGATION ================= */
+
         nav {
             background: #173b67;
             color: white;
             padding: 15px 25px;
+
             display: flex;
             justify-content: flex-end;
             align-items: center;
+
             gap: 8px;
+            flex-wrap: wrap;
         }
 
         nav a {
             color: white;
             text-decoration: none;
+
             padding: 8px 12px;
-            margin: 0;
             border-radius: 5px;
+
             font-size: 15px;
         }
 
@@ -43,10 +50,12 @@
             background: rgba(255, 255, 255, 0.15);
         }
 
-        /* Hero */
+        /* ================= HERO ================= */
+
         .hero {
             background: white;
             text-align: center;
+
             padding: 45px 20px;
         }
 
@@ -56,79 +65,150 @@
 
         .hero h1 {
             color: #173b67;
+
             margin: 15px 0 10px;
+
             font-size: 38px;
         }
 
         .hero p {
             color: #666;
+
             font-size: 17px;
         }
 
-        /* Content */
+        /* ================= CONTENT ================= */
+
         .content {
             max-width: 900px;
+
             margin: 40px auto;
+
             padding: 0 20px;
         }
 
+        /* ================= LESSON ================= */
+
         .lesson {
             background: white;
+
             margin-bottom: 20px;
+
             padding: 25px;
+
             border-radius: 10px;
+
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
         }
 
         .lesson h2 {
             color: #173b67;
+
             margin-bottom: 12px;
         }
 
         .lesson p {
             color: #555;
+
             line-height: 1.6;
+
             margin-bottom: 12px;
         }
 
         .lesson ul {
             margin-left: 25px;
+
             line-height: 1.8;
+
             color: #555;
         }
 
-        /* Code */
+        /* ================= CODE ================= */
+
         .code {
             background: #1e1e1e;
+
             color: white;
+
             padding: 15px;
+
             border-radius: 6px;
+
             margin-top: 15px;
+
             overflow-x: auto;
+
+            line-height: 1.6;
         }
 
-        /* Quiz */
+        /* ================= QUIZ ================= */
+
         .quiz {
             background: white;
+
             padding: 25px;
+
             border-radius: 10px;
+
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+
             margin-top: 30px;
         }
 
         .quiz h2 {
             color: #173b67;
+
+            margin-bottom: 20px;
+        }
+
+        .question {
+            padding: 18px;
+
             margin-bottom: 15px;
+
+            background: #f7f9fc;
+
+            border-radius: 8px;
+
+            border-left: 4px solid #173b67;
+        }
+
+        .question p {
+            margin-bottom: 12px;
+
+            line-height: 1.5;
+        }
+
+        .question label {
+            display: block;
+
+            padding: 6px 0;
+
+            cursor: pointer;
+
+            color: #444;
+        }
+
+        .question input {
+            margin-right: 8px;
         }
 
         .quiz button {
             margin-top: 15px;
-            padding: 11px 20px;
+
+            padding: 12px 25px;
+
             background: #173b67;
+
             color: white;
+
             border: none;
+
             border-radius: 6px;
+
             cursor: pointer;
+
+            font-size: 16px;
         }
 
         .quiz button:hover {
@@ -136,57 +216,102 @@
         }
 
         #result {
-            margin-top: 15px;
+            margin-top: 20px;
+
             font-weight: bold;
+
+            font-size: 18px;
         }
 
-        /* Footer */
+        /* ================= FOOTER ================= */
+
         footer {
             background: #173b67;
+
             color: white;
+
             text-align: center;
+
             padding: 20px;
+
             margin-top: 40px;
         }
 
-        /* Mobile */
+        /* ================= MOBILE ================= */
+
         @media (max-width: 600px) {
+
             nav {
                 justify-content: center;
+
                 gap: 4px;
+
                 padding: 12px 10px;
-                flex-wrap: wrap;
             }
 
             nav a {
                 padding: 7px 9px;
+
                 font-size: 14px;
             }
 
             .hero h1 {
                 font-size: 30px;
             }
+
+            .content {
+                padding: 0 12px;
+            }
+
+            .lesson,
+            .quiz {
+                padding: 20px;
+            }
+
         }
+
     </style>
+
 </head>
+
 
 <body>
 
-    <!-- Navigation -->
+
+    <!-- ================= NAVIGATION ================= -->
+
     <nav>
-    <a href="{{ url_for('dashboard') }}">Dashboard</a>
-    <a href="{{ url_for('courses') }}">Courses</a>
-    <a href="{{ url_for('profile') }}">Profile</a>
-    <a href="{{ url_for('logout') }}">Logout</a>
-</nav>
+
+        <a href="{{ url_for('dashboard') }}">
+            Dashboard
+        </a>
+
+        <a href="{{ url_for('courses') }}">
+            Courses
+        </a>
+
+        <a href="{{ url_for('profile') }}">
+            Profile
+        </a>
+
+        <a href="{{ url_for('logout') }}">
+            Logout
+        </a>
+
+    </nav>
 
 
-    <!-- Hero -->
+    <!-- ================= HERO ================= -->
+
     <section class="hero">
 
-        <div class="icon">☕</div>
+        <div class="icon">
+            ☕
+        </div>
 
-        <h1>Java Programming</h1>
+        <h1>
+            Java Programming
+        </h1>
 
         <p>
             Learn Java programming from basics to object-oriented concepts.
@@ -195,13 +320,18 @@
     </section>
 
 
-    <!-- Course Content -->
+    <!-- ================= COURSE CONTENT ================= -->
+
     <main class="content">
 
-        <!-- Lesson 1 -->
+
+        <!-- LESSON 1 -->
+
         <section class="lesson">
 
-            <h2>Lesson 1: Introduction to Java</h2>
+            <h2>
+                Lesson 1: Introduction to Java
+            </h2>
 
             <p>
                 Java is a popular object-oriented programming language.
@@ -210,19 +340,35 @@
             </p>
 
             <ul>
-                <li>Object-oriented programming language</li>
-                <li>Platform independent</li>
-                <li>Secure and reliable</li>
-                <li>Widely used in software development</li>
+
+                <li>
+                    Object-oriented programming language
+                </li>
+
+                <li>
+                    Platform independent
+                </li>
+
+                <li>
+                    Secure and reliable
+                </li>
+
+                <li>
+                    Widely used in software development
+                </li>
+
             </ul>
 
         </section>
 
 
-        <!-- Lesson 2 -->
+        <!-- LESSON 2 -->
+
         <section class="lesson">
 
-            <h2>Lesson 2: Variables and Data Types</h2>
+            <h2>
+                Lesson 2: Variables and Data Types
+            </h2>
 
             <p>
                 Variables are used to store data. Java supports
@@ -230,19 +376,24 @@
             </p>
 
             <div class="code">
+
                 int age = 18;<br>
                 double marks = 85.5;<br>
                 char grade = 'A';<br>
                 boolean passed = true;
+
             </div>
 
         </section>
 
 
-        <!-- Lesson 3 -->
+        <!-- LESSON 3 -->
+
         <section class="lesson">
 
-            <h2>Lesson 3: If-Else</h2>
+            <h2>
+                Lesson 3: If-Else
+            </h2>
 
             <p>
                 If-else statements are used to make decisions
@@ -250,40 +401,59 @@
             </p>
 
             <div class="code">
+
                 int age = 18;<br><br>
 
                 if (age &gt;= 18) {<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;System.out.println("Eligible");<br>
+
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                System.out.println("Eligible");<br>
+
                 } else {<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;System.out.println("Not Eligible");<br>
+
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                System.out.println("Not Eligible");<br>
+
                 }
+
             </div>
 
         </section>
 
 
-        <!-- Lesson 4 -->
+        <!-- LESSON 4 -->
+
         <section class="lesson">
 
-            <h2>Lesson 4: Loops</h2>
+            <h2>
+                Lesson 4: Loops
+            </h2>
 
             <p>
                 Loops are used to execute a block of code repeatedly.
             </p>
 
             <div class="code">
+
                 for (int i = 1; i &lt;= 5; i++) {<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;System.out.println(i);<br>
+
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                System.out.println(i);<br>
+
                 }
+
             </div>
 
         </section>
 
 
-        <!-- Lesson 5 -->
+        <!-- LESSON 5 -->
+
         <section class="lesson">
 
-            <h2>Lesson 5: Classes and Objects</h2>
+            <h2>
+                Lesson 5: Classes and Objects
+            </h2>
 
             <p>
                 A class is a blueprint for creating objects.
@@ -291,63 +461,336 @@
             </p>
 
             <div class="code">
+
                 class Student {<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;String name;<br>
-                &nbsp;&nbsp;&nbsp;&nbsp;int age;<br>
+
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                String name;<br>
+
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                int age;<br>
+
                 }<br><br>
 
                 Student s1 = new Student();
+
             </div>
 
         </section>
 
 
-        <!-- Quiz -->
+        <!-- ================= JAVA QUIZ ================= -->
+
         <section class="quiz">
 
-            <h2>Quick Quiz 📝</h2>
+            <h2>
+                Java Quiz 📝
+            </h2>
 
-            <p>
-                <strong>
-                    Which keyword is used to create an object in Java?
-                </strong>
-            </p>
 
-            <br>
+            <form id="javaQuiz">
 
-            <label>
-                <input type="radio" name="answer" value="a">
-                class
-            </label>
 
-            <br><br>
+                <!-- QUESTION 1 -->
 
-            <label>
-                <input type="radio" name="answer" value="b">
-                new
-            </label>
+                <div class="question">
 
-            <br><br>
+                    <p>
+                        <strong>
+                            1. Which keyword is used to create a class in Java?
+                        </strong>
+                    </p>
 
-            <label>
-                <input type="radio" name="answer" value="c">
-                object
-            </label>
+                    <label>
+                        <input type="radio" name="q1" value="a">
+                        function
+                    </label>
 
-            <br>
+                    <label>
+                        <input type="radio" name="q1" value="b">
+                        class
+                    </label>
 
-            <button onclick="checkAnswer()">
-                Submit Answer
-            </button>
+                    <label>
+                        <input type="radio" name="q1" value="c">
+                        create
+                    </label>
+
+                </div>
+
+
+                <!-- QUESTION 2 -->
+
+                <div class="question">
+
+                    <p>
+                        <strong>
+                            2. Which keyword is used to create an object in Java?
+                        </strong>
+                    </p>
+
+                    <label>
+                        <input type="radio" name="q2" value="a">
+                        new
+                    </label>
+
+                    <label>
+                        <input type="radio" name="q2" value="b">
+                        object
+                    </label>
+
+                    <label>
+                        <input type="radio" name="q2" value="c">
+                        create
+                    </label>
+
+                </div>
+
+
+                <!-- QUESTION 3 -->
+
+                <div class="question">
+
+                    <p>
+                        <strong>
+                            3. Which data type is used to store whole numbers?
+                        </strong>
+                    </p>
+
+                    <label>
+                        <input type="radio" name="q3" value="a">
+                        String
+                    </label>
+
+                    <label>
+                        <input type="radio" name="q3" value="b">
+                        int
+                    </label>
+
+                    <label>
+                        <input type="radio" name="q3" value="c">
+                        boolean
+                    </label>
+
+                </div>
+
+
+                <!-- QUESTION 4 -->
+
+                <div class="question">
+
+                    <p>
+                        <strong>
+                            4. Which method is the starting point of a Java program?
+                        </strong>
+                    </p>
+
+                    <label>
+                        <input type="radio" name="q4" value="a">
+                        start()
+                    </label>
+
+                    <label>
+                        <input type="radio" name="q4" value="b">
+                        main()
+                    </label>
+
+                    <label>
+                        <input type="radio" name="q4" value="c">
+                        run()
+                    </label>
+
+                </div>
+
+
+                <!-- QUESTION 5 -->
+
+                <div class="question">
+
+                    <p>
+                        <strong>
+                            5. Which symbol is used to end a statement in Java?
+                        </strong>
+                    </p>
+
+                    <label>
+                        <input type="radio" name="q5" value="a">
+                        :
+                    </label>
+
+                    <label>
+                        <input type="radio" name="q5" value="b">
+                        ;
+                    </label>
+
+                    <label>
+                        <input type="radio" name="q5" value="c">
+                        .
+                    </label>
+
+                </div>
+
+
+                <!-- QUESTION 6 -->
+
+                <div class="question">
+
+                    <p>
+                        <strong>
+                            6. Which keyword is used for inheritance in Java?
+                        </strong>
+                    </p>
+
+                    <label>
+                        <input type="radio" name="q6" value="a">
+                        extends
+                    </label>
+
+                    <label>
+                        <input type="radio" name="q6" value="b">
+                        inherit
+                    </label>
+
+                    <label>
+                        <input type="radio" name="q6" value="c">
+                        implements
+                    </label>
+
+                </div>
+
+
+                <!-- QUESTION 7 -->
+
+                <div class="question">
+
+                    <p>
+                        <strong>
+                            7. Which data type stores true or false values?
+                        </strong>
+                    </p>
+
+                    <label>
+                        <input type="radio" name="q7" value="a">
+                        int
+                    </label>
+
+                    <label>
+                        <input type="radio" name="q7" value="b">
+                        char
+                    </label>
+
+                    <label>
+                        <input type="radio" name="q7" value="c">
+                        boolean
+                    </label>
+
+                </div>
+
+
+                <!-- QUESTION 8 -->
+
+                <div class="question">
+
+                    <p>
+                        <strong>
+                            8. Which programming paradigm is Java mainly based on?
+                        </strong>
+                    </p>
+
+                    <label>
+                        <input type="radio" name="q8" value="a">
+                        Object-Oriented Programming
+                    </label>
+
+                    <label>
+                        <input type="radio" name="q8" value="b">
+                        Machine Language
+                    </label>
+
+                    <label>
+                        <input type="radio" name="q8" value="c">
+                        Assembly Language
+                    </label>
+
+                </div>
+
+
+                <!-- QUESTION 9 -->
+
+                <div class="question">
+
+                    <p>
+                        <strong>
+                            9. Which keyword is used to define a constant in Java?
+                        </strong>
+                    </p>
+
+                    <label>
+                        <input type="radio" name="q9" value="a">
+                        const
+                    </label>
+
+                    <label>
+                        <input type="radio" name="q9" value="b">
+                        final
+                    </label>
+
+                    <label>
+                        <input type="radio" name="q9" value="c">
+                        constant
+                    </label>
+
+                </div>
+
+
+                <!-- QUESTION 10 -->
+
+                <div class="question">
+
+                    <p>
+                        <strong>
+                            10. Which company originally developed Java?
+                        </strong>
+                    </p>
+
+                    <label>
+                        <input type="radio" name="q10" value="a">
+                        Microsoft
+                    </label>
+
+                    <label>
+                        <input type="radio" name="q10" value="b">
+                        Sun Microsystems
+                    </label>
+
+                    <label>
+                        <input type="radio" name="q10" value="c">
+                        IBM
+                    </label>
+
+                </div>
+
+
+                <!-- SUBMIT -->
+
+                <button type="button" onclick="checkJavaQuiz()">
+                    Submit Quiz
+                </button>
+
+
+            </form>
+
 
             <div id="result"></div>
 
         </section>
 
+
     </main>
 
 
-    <!-- Footer -->
+    <!-- ================= FOOTER ================= -->
+
     <footer>
 
         <p>
@@ -357,36 +800,112 @@
     </footer>
 
 
-    <!-- Quiz JavaScript -->
+    <!-- ================= JAVASCRIPT ================= -->
+
     <script>
-    function checkAnswer() {
 
-        const answer = document.querySelector(
-            'input[name="answer"]:checked'
-        );
+        function checkJavaQuiz() {
 
-        const result = document.getElementById("result");
+            const correctAnswers = {
 
-        if (!answer) {
-            result.innerText = "Please select an answer.";
-            result.style.color = "red";
-            return;
-        }
+                q1: "b",
+                q2: "a",
+                q3: "b",
+                q4: "b",
+                q5: "b",
+                q6: "a",
+                q7: "c",
+                q8: "a",
+                q9: "b",
+                q10: "b"
 
-        if (answer.value === "b") {
-            result.innerText = "Correct Answer! 🎉 Score: 100%";
+            };
+
+
+            let score = 0;
+
+            let attempted = 0;
+
+
+            /* CHECK ALL 10 QUESTIONS */
+
+            for (let i = 1; i <= 10; i++) {
+
+                const answer = document.querySelector(
+                    'input[name="q' + i + '"]:checked'
+                );
+
+
+                if (answer) {
+
+                    attempted++;
+
+
+                    if (
+                        answer.value ===
+                        correctAnswers["q" + i]
+                    ) {
+
+                        score++;
+
+                    }
+
+                }
+
+            }
+
+
+            const result =
+                document.getElementById("result");
+
+
+            /* CHECK IF ALL QUESTIONS ARE ANSWERED */
+
+            if (attempted < 10) {
+
+                result.innerText =
+                    "Please answer all 10 questions. You answered " +
+                    attempted +
+                    " out of 10.";
+
+                result.style.color = "red";
+
+                return;
+
+            }
+
+
+            /* CALCULATE PERCENTAGE */
+
+            const percentage =
+                score * 10;
+
+
+            /* SHOW RESULT */
+
+            result.innerText =
+                "Quiz Completed! 🎉 Score: " +
+                score +
+                "/10 (" +
+                percentage +
+                "%)";
+
+
             result.style.color = "green";
 
-            localStorage.setItem("javaProgress", "100");
 
-        } else {
-            result.innerText = "Wrong Answer. Try again!";
-            result.style.color = "red";
+            /* SAVE PROGRESS */
 
-            localStorage.setItem("javaProgress", "0");
+            localStorage.setItem(
+                "javaProgress",
+                percentage
+            );
+
         }
-    }
-</script>
+
+    </script>
+
 
 </body>
+
 </html>
