@@ -230,25 +230,27 @@
             CAPACITY CONNECT
         </div>
 
-        <div class="nav-links">
+        
+<div class="nav-links">
 
-            <a href="http://127.0.0.1:5000/dashboard">
-                Dashboard
-            </a>
+    <a href="{{ url_for('dashboard') }}">
+        Dashboard
+    </a>
 
-            <a href="http://127.0.0.1:5000/courses">
-                Courses
-            </a>
+    <a href="{{ url_for('courses') }}">
+        Courses
+    </a>
 
-            <a href="http://127.0.0.1:5000/profile">
-                Profile
-            </a>
+    <a href="{{ url_for('profile') }}">
+        Profile
+    </a>
 
-            <a href="http://127.0.0.1:5000/logout" class="logout">
-                Logout
-            </a>
+    <a href="{{ url_for('logout') }}" class="logout">
+        Logout
+    </a>
 
-        </div>
+</div>
+
 
     </nav>
 
@@ -356,11 +358,11 @@
                     <li>Functions</li>
                 </ul>
 
-                <a
-                    href="http://127.0.0.1:5000/python-course"
-                    class="course-btn">
-                    Start Course
+                
+                <a href="{{ url_for('python_course') }}" class="course-btn">
+                   Start Course
                 </a>
+                    
 
             </div>
 
@@ -388,12 +390,9 @@
                     <li>Classes & Objects</li>
                 </ul>
 
-                <a
-                    href="http://127.0.0.1:5000/java-course"
-                    class="course-btn">
-                    Start Course
-                </a>
-
+            <a href="{{ url_for('java_course') }}" class="course-btn">
+               Start Course
+            </a>
             </div>
 
 
@@ -420,12 +419,9 @@
                     <li>Responsive Design</li>
                 </ul>
 
-                <a
-                    href="http://127.0.0.1:5000/web-course"
-                    class="course-btn">
-                    Start Course
+                <a href="{{ url_for('web_course') }}" class="course-btn">
+                  Start Course
                 </a>
-
             </div>
 
 
@@ -452,10 +448,8 @@
                     <li>Data Visualization</li>
                 </ul>
 
-                <a
-                    href="http://127.0.0.1:5000/data-course"
-                    class="course-btn">
-                    Start Course
+                <a href="{{ url_for('data_course') }}" class="course-btn">
+                   Start Course
                 </a>
 
             </div>
