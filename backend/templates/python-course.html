@@ -118,17 +118,41 @@
 
         .quiz h2 {
             color: #173b67;
-            margin-bottom: 15px;
+            margin-bottom: 20px;
+        }
+
+        .question {
+            margin-bottom: 25px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .question:last-of-type {
+            border-bottom: none;
+        }
+
+        .question p {
+            margin-bottom: 12px;
+            line-height: 1.5;
+        }
+
+        .question label {
+            display: block;
+            margin: 10px 0;
+            cursor: pointer;
+            color: #444;
         }
 
         .quiz button {
             margin-top: 15px;
-            padding: 11px 20px;
+            padding: 12px 25px;
             background: #173b67;
             color: white;
             border: none;
             border-radius: 6px;
             cursor: pointer;
+            font-size: 16px;
+            font-weight: bold;
         }
 
         .quiz button:hover {
@@ -136,8 +160,10 @@
         }
 
         #result {
-            margin-top: 15px;
+            margin-top: 20px;
             font-weight: bold;
+            font-size: 18px;
+            line-height: 1.6;
         }
 
         /* Footer */
@@ -151,6 +177,7 @@
 
         /* Mobile */
         @media (max-width: 600px) {
+
             nav {
                 justify-content: center;
                 gap: 4px;
@@ -166,6 +193,10 @@
             .hero h1 {
                 font-size: 30px;
             }
+
+            .quiz {
+                padding: 20px;
+            }
         }
     </style>
 </head>
@@ -174,10 +205,23 @@
 
     <!-- Navigation -->
     <nav>
-    <a href="{{ url_for('dashboard') }}">Dashboard</a>
-    <a href="{{ url_for('courses') }}">Courses</a>
-    <a href="{{ url_for('profile') }}">Profile</a>
-    <a href="{{ url_for('logout') }}">Logout</a>
+
+        <a href="{{ url_for('dashboard') }}">
+            Dashboard
+        </a>
+
+        <a href="{{ url_for('courses') }}">
+            Courses
+        </a>
+
+        <a href="{{ url_for('profile') }}">
+            Profile
+        </a>
+
+        <a href="{{ url_for('logout') }}">
+            Logout
+        </a>
+
     </nav>
 
 
@@ -297,42 +341,285 @@
         </section>
 
 
-        <!-- Quiz -->
+        <!-- 10 Question Quiz -->
         <section class="quiz">
 
-            <h2>Quick Quiz 📝</h2>
+            <h2>Python Quiz 📝</h2>
 
-            <p>
-                <strong>
-                    Which keyword is used to define a function in Python?
-                </strong>
-            </p>
 
-            <br>
+            <!-- Question 1 -->
+            <div class="question">
 
-            <label>
-                <input type="radio" name="answer" value="a">
-                function
-            </label>
+                <p>
+                    <strong>
+                        1. Which keyword is used to define a function in Python?
+                    </strong>
+                </p>
 
-            <br><br>
+                <label>
+                    <input type="radio" name="q1" value="a">
+                    function
+                </label>
 
-            <label>
-                <input type="radio" name="answer" value="b">
-                def
-            </label>
+                <label>
+                    <input type="radio" name="q1" value="b">
+                    def
+                </label>
 
-            <br><br>
+                <label>
+                    <input type="radio" name="q1" value="c">
+                    define
+                </label>
 
-            <label>
-                <input type="radio" name="answer" value="c">
-                define
-            </label>
+            </div>
 
-            <br>
 
+            <!-- Question 2 -->
+            <div class="question">
+
+                <p>
+                    <strong>
+                        2. Which symbol is used to write a comment in Python?
+                    </strong>
+                </p>
+
+                <label>
+                    <input type="radio" name="q2" value="a">
+                    //
+                </label>
+
+                <label>
+                    <input type="radio" name="q2" value="b">
+                    #
+                </label>
+
+                <label>
+                    <input type="radio" name="q2" value="c">
+                    /*
+                </label>
+
+            </div>
+
+
+            <!-- Question 3 -->
+            <div class="question">
+
+                <p>
+                    <strong>
+                        3. Which data type is used to store text in Python?
+                    </strong>
+                </p>
+
+                <label>
+                    <input type="radio" name="q3" value="a">
+                    int
+                </label>
+
+                <label>
+                    <input type="radio" name="q3" value="b">
+                    float
+                </label>
+
+                <label>
+                    <input type="radio" name="q3" value="c">
+                    str
+                </label>
+
+            </div>
+
+
+            <!-- Question 4 -->
+            <div class="question">
+
+                <p>
+                    <strong>
+                        4. Which function is used to display output in Python?
+                    </strong>
+                </p>
+
+                <label>
+                    <input type="radio" name="q4" value="a">
+                    print()
+                </label>
+
+                <label>
+                    <input type="radio" name="q4" value="b">
+                    display()
+                </label>
+
+                <label>
+                    <input type="radio" name="q4" value="c">
+                    show()
+                </label>
+
+            </div>
+
+
+            <!-- Question 5 -->
+            <div class="question">
+
+                <p>
+                    <strong>
+                        5. Which keyword is used to check a condition in Python?
+                    </strong>
+                </p>
+
+                <label>
+                    <input type="radio" name="q5" value="a">
+                    if
+                </label>
+
+                <label>
+                    <input type="radio" name="q5" value="b">
+                    when
+                </label>
+
+                <label>
+                    <input type="radio" name="q5" value="c">
+                    check
+                </label>
+
+            </div>
+
+
+            <!-- Question 6 -->
+            <div class="question">
+
+                <p>
+                    <strong>
+                        6. Which loop is commonly used to iterate over a sequence?
+                    </strong>
+                </p>
+
+                <label>
+                    <input type="radio" name="q6" value="a">
+                    repeat
+                </label>
+
+                <label>
+                    <input type="radio" name="q6" value="b">
+                    for
+                </label>
+
+                <label>
+                    <input type="radio" name="q6" value="c">
+                    loop
+                </label>
+
+            </div>
+
+
+            <!-- Question 7 -->
+            <div class="question">
+
+                <p>
+                    <strong>
+                        7. Which data type stores True or False?
+                    </strong>
+                </p>
+
+                <label>
+                    <input type="radio" name="q7" value="a">
+                    bool
+                </label>
+
+                <label>
+                    <input type="radio" name="q7" value="b">
+                    str
+                </label>
+
+                <label>
+                    <input type="radio" name="q7" value="c">
+                    int
+                </label>
+
+            </div>
+
+
+            <!-- Question 8 -->
+            <div class="question">
+
+                <p>
+                    <strong>
+                        8. Which brackets are used to create a list in Python?
+                    </strong>
+                </p>
+
+                <label>
+                    <input type="radio" name="q8" value="a">
+                    { }
+                </label>
+
+                <label>
+                    <input type="radio" name="q8" value="b">
+                    ( )
+                </label>
+
+                <label>
+                    <input type="radio" name="q8" value="c">
+                    [ ]
+                </label>
+
+            </div>
+
+
+            <!-- Question 9 -->
+            <div class="question">
+
+                <p>
+                    <strong>
+                        9. Which operator is used for exponentiation in Python?
+                    </strong>
+                </p>
+
+                <label>
+                    <input type="radio" name="q9" value="a">
+                    *
+                </label>
+
+                <label>
+                    <input type="radio" name="q9" value="b">
+                    **
+                </label>
+
+                <label>
+                    <input type="radio" name="q9" value="c">
+                    ^
+                </label>
+
+            </div>
+
+
+            <!-- Question 10 -->
+            <div class="question">
+
+                <p>
+                    <strong>
+                        10. Which keyword is used to return a value from a function?
+                    </strong>
+                </p>
+
+                <label>
+                    <input type="radio" name="q10" value="a">
+                    return
+                </label>
+
+                <label>
+                    <input type="radio" name="q10" value="b">
+                    send
+                </label>
+
+                <label>
+                    <input type="radio" name="q10" value="c">
+                    output
+                </label>
+
+            </div>
+
+
+            <!-- Submit -->
             <button onclick="checkAnswer()">
-                Submit Answer
+                Submit Quiz
             </button>
 
             <div id="result"></div>
@@ -354,33 +641,105 @@
 
     <!-- Quiz JavaScript -->
     <script>
+
     function checkAnswer() {
 
-        const answer = document.querySelector(
-            'input[name="answer"]:checked'
-        );
+        const correctAnswers = {
+
+            q1: "b",
+            q2: "b",
+            q3: "c",
+            q4: "a",
+            q5: "a",
+            q6: "b",
+            q7: "a",
+            q8: "c",
+            q9: "b",
+            q10: "a"
+
+        };
+
+
+        let score = 0;
+        let attempted = 0;
+
+
+        for (let question in correctAnswers) {
+
+            const answer = document.querySelector(
+                'input[name="' + question + '"]:checked'
+            );
+
+
+            if (answer) {
+
+                attempted++;
+
+
+                if (answer.value === correctAnswers[question]) {
+
+                    score++;
+
+                }
+
+            }
+
+        }
+
 
         const result = document.getElementById("result");
 
-        if (!answer) {
-            result.innerText = "Please select an answer.";
+
+        if (attempted < 10) {
+
+            result.innerText =
+                "Please answer all 10 questions. You answered " +
+                attempted +
+                "/10.";
+
             result.style.color = "red";
+
             return;
+
         }
 
-        if (answer.value === "b") {
-            result.innerText = "Correct Answer! 🎉 Score: 100%";
+
+        const percentage = score * 10;
+
+
+        if (percentage >= 50) {
+
+            result.innerText =
+                "🎉 Quiz Completed! Score: " +
+                score +
+                "/10 (" +
+                percentage +
+                "%) - PASSED";
+
             result.style.color = "green";
 
-            localStorage.setItem("pythonProgress", "100");
         } else {
-            result.innerText = "Wrong Answer. Try again!";
+
+            result.innerText =
+                "Quiz Completed. Score: " +
+                score +
+                "/10 (" +
+                percentage +
+                "%) - TRY AGAIN";
+
             result.style.color = "red";
 
-            localStorage.setItem("pythonProgress", "0");
         }
+
+
+        localStorage.setItem(
+            "pythonProgress",
+            percentage
+        );
+
     }
-</script>
+
+    </script>
 
 </body>
 </html>
