@@ -56,6 +56,7 @@ def test_db():
 def register_page():
     return render_template("register.html")
 
+
 @app.route("/register", methods=["POST"])
 def register():
 
@@ -80,7 +81,7 @@ def register():
         cursor.close()
         db.close()
 
-        return "Registration Successful!"
+        return redirect(url_for("login_page"))
 
     except Exception as err:
         return f"Registration Failed: {err}"
