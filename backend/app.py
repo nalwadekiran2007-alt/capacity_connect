@@ -362,7 +362,7 @@ def python_course():
     if "user_id" not in session:
         return redirect(url_for("home"))
 
-    return render_template("Python-course.html")
+    return render_template("python-course.html")
 
 
 # =====================================================
@@ -375,7 +375,7 @@ def java_course():
     if "user_id" not in session:
         return redirect(url_for("home"))
 
-    return render_template("Java-course.html")
+    return render_template("java-course.html")
 
 
 # =====================================================
@@ -388,7 +388,7 @@ def web_course():
     if "user_id" not in session:
         return redirect(url_for("home"))
 
-    return render_template("Web-course.html")
+    return render_template("web-course.html")
 
 
 # =====================================================
