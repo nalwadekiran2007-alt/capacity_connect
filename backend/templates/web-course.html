@@ -1,5 +1,7 @@
+
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -105,12 +107,13 @@
             border-radius: 6px;
             margin-top: 15px;
             overflow-x: auto;
+            line-height: 1.6;
         }
 
         /* Quiz */
         .quiz {
             background: white;
-            padding: 25px;
+            padding: 30px;
             border-radius: 10px;
             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
             margin-top: 30px;
@@ -118,17 +121,45 @@
 
         .quiz h2 {
             color: #173b67;
-            margin-bottom: 15px;
+            margin-bottom: 25px;
+        }
+
+        .question {
+            margin-bottom: 25px;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .question:last-of-type {
+            border-bottom: none;
+        }
+
+        .question p {
+            font-size: 17px;
+            margin-bottom: 12px;
+            line-height: 1.5;
+        }
+
+        .question label {
+            display: block;
+            margin: 10px 0;
+            color: #555;
+            cursor: pointer;
+        }
+
+        .question input {
+            margin-right: 8px;
         }
 
         .quiz button {
-            margin-top: 15px;
-            padding: 11px 20px;
+            margin-top: 10px;
+            padding: 12px 25px;
             background: #173b67;
             color: white;
             border: none;
             border-radius: 6px;
             cursor: pointer;
+            font-size: 16px;
         }
 
         .quiz button:hover {
@@ -136,8 +167,10 @@
         }
 
         #result {
-            margin-top: 15px;
+            margin-top: 20px;
             font-weight: bold;
+            font-size: 18px;
+            line-height: 1.6;
         }
 
         /* Footer */
@@ -151,6 +184,7 @@
 
         /* Mobile */
         @media (max-width: 600px) {
+
             nav {
                 justify-content: center;
                 gap: 4px;
@@ -166,6 +200,10 @@
             .hero h1 {
                 font-size: 30px;
             }
+
+            .quiz {
+                padding: 20px;
+            }
         }
     </style>
 </head>
@@ -174,18 +212,36 @@
 
     <!-- Navigation -->
     <nav>
-    <a href="{{ url_for('dashboard') }}">Dashboard</a>
-    <a href="{{ url_for('courses') }}">Courses</a>
-    <a href="{{ url_for('profile') }}">Profile</a>
-    <a href="{{ url_for('logout') }}">Logout</a>
-</nav>
+
+        <a href="{{ url_for('dashboard') }}">
+            Dashboard
+        </a>
+
+        <a href="{{ url_for('courses') }}">
+            Courses
+        </a>
+
+        <a href="{{ url_for('profile') }}">
+            Profile
+        </a>
+
+        <a href="{{ url_for('logout') }}">
+            Logout
+        </a>
+
+    </nav>
+
 
     <!-- Hero -->
     <section class="hero">
 
-        <div class="icon">🌐</div>
+        <div class="icon">
+            🌐
+        </div>
 
-        <h1>Web Development</h1>
+        <h1>
+            Web Development
+        </h1>
 
         <p>
             Learn HTML, CSS and JavaScript and build modern websites.
@@ -197,10 +253,13 @@
     <!-- Course Content -->
     <main class="content">
 
+
         <!-- Lesson 1 -->
         <section class="lesson">
 
-            <h2>Lesson 1: HTML Basics</h2>
+            <h2>
+                Lesson 1: HTML Basics
+            </h2>
 
             <p>
                 HTML stands for HyperText Markup Language.
@@ -216,8 +275,11 @@
             </ul>
 
             <div class="code">
+
                 &lt;h1&gt;Hello World&lt;/h1&gt;<br>
+
                 &lt;p&gt;Welcome to my website.&lt;/p&gt;
+
             </div>
 
         </section>
@@ -226,7 +288,9 @@
         <!-- Lesson 2 -->
         <section class="lesson">
 
-            <h2>Lesson 2: CSS Basics</h2>
+            <h2>
+                Lesson 2: CSS Basics
+            </h2>
 
             <p>
                 CSS stands for Cascading Style Sheets.
@@ -242,10 +306,15 @@
             </ul>
 
             <div class="code">
+
                 body {<br>
+
                 &nbsp;&nbsp;&nbsp;&nbsp;font-family: Arial;<br>
+
                 &nbsp;&nbsp;&nbsp;&nbsp;background: white;<br>
+
                 }
+
             </div>
 
         </section>
@@ -254,7 +323,9 @@
         <!-- Lesson 3 -->
         <section class="lesson">
 
-            <h2>Lesson 3: JavaScript Basics</h2>
+            <h2>
+                Lesson 3: JavaScript Basics
+            </h2>
 
             <p>
                 JavaScript is used to make web pages interactive
@@ -262,8 +333,11 @@
             </p>
 
             <div class="code">
+
                 let name = "Kiran";<br>
+
                 console.log("Hello " + name);
+
             </div>
 
         </section>
@@ -272,17 +346,24 @@
         <!-- Lesson 4 -->
         <section class="lesson">
 
-            <h2>Lesson 4: HTML Forms</h2>
+            <h2>
+                Lesson 4: HTML Forms
+            </h2>
 
             <p>
                 Forms are used to collect information from users.
             </p>
 
             <div class="code">
+
                 &lt;form&gt;<br>
+
                 &nbsp;&nbsp;&nbsp;&nbsp;&lt;input type="text" placeholder="Name"&gt;<br>
+
                 &nbsp;&nbsp;&nbsp;&nbsp;&lt;button&gt;Submit&lt;/button&gt;<br>
+
                 &lt;/form&gt;
+
             </div>
 
         </section>
@@ -291,7 +372,9 @@
         <!-- Lesson 5 -->
         <section class="lesson">
 
-            <h2>Lesson 5: Responsive Web Design</h2>
+            <h2>
+                Lesson 5: Responsive Web Design
+            </h2>
 
             <p>
                 Responsive design makes websites work properly
@@ -308,86 +391,209 @@
         </section>
 
 
-        <!-- Quiz -->
-        <section class="quiz">
 
-            <h2>Quick Quiz 📝</h2>
+        <!-- QUIZ -->
 
-            <p>
-                <strong>
-                    Which language is used to style a web page?
-                </strong>
-            </p>
+<section class="quiz">
 
-            <br>
+    <h2>Web Development Quiz 📝</h2>
 
-            <label>
-                <input type="radio" name="answer" value="a">
-                HTML
-            </label>
+    <div class="question">
+        <p>1. Which language is used to create the structure of a web page?</p>
+        <label><input type="radio" name="q1" value="a"> HTML</label>
+        <label><input type="radio" name="q1" value="b"> CSS</label>
+        <label><input type="radio" name="q1" value="c"> Python</label>
+    </div>
 
-            <br><br>
+    <div class="question">
+        <p>2. Which language is used to style a web page?</p>
+        <label><input type="radio" name="q2" value="a"> HTML</label>
+        <label><input type="radio" name="q2" value="b"> CSS</label>
+        <label><input type="radio" name="q2" value="c"> Java</label>
+    </div>
 
-            <label>
-                <input type="radio" name="answer" value="b">
-                CSS
-            </label>
+    <div class="question">
+        <p>3. Which language is used to make web pages interactive?</p>
+        <label><input type="radio" name="q3" value="a"> HTML</label>
+        <label><input type="radio" name="q3" value="b"> CSS</label>
+        <label><input type="radio" name="q3" value="c"> JavaScript</label>
+    </div>
 
-            <br><br>
+    <div class="question">
+        <p>4. What does HTML stand for?</p>
+        <label><input type="radio" name="q4" value="a"> HyperText Markup Language</label>
+        <label><input type="radio" name="q4" value="b"> HighText Machine Language</label>
+        <label><input type="radio" name="q4" value="c"> Hyper Tool Multi Language</label>
+    </div>
 
-            <label>
-                <input type="radio" name="answer" value="c">
-                Python
-            </label>
+    <div class="question">
+        <p>5. Which tag is used for the largest heading?</p>
+        <label><input type="radio" name="q5" value="a"> &lt;p&gt;</label>
+        <label><input type="radio" name="q5" value="b"> &lt;h1&gt;</label>
+        <label><input type="radio" name="q5" value="c"> &lt;head&gt;</label>
+    </div>
 
-            <br>
+    <div class="question">
+        <p>6. Which HTML tag creates a hyperlink?</p>
+        <label><input type="radio" name="q6" value="a"> &lt;link&gt;</label>
+        <label><input type="radio" name="q6" value="b"> &lt;a&gt;</label>
+        <label><input type="radio" name="q6" value="c"> &lt;url&gt;</label>
+    </div>
 
-            <button onclick="checkAnswer()">
-                Submit Answer
-            </button>
+    <div class="question">
+        <p>7. Which CSS property changes text color?</p>
+        <label><input type="radio" name="q7" value="a"> background</label>
+        <label><input type="radio" name="q7" value="b"> font-size</label>
+        <label><input type="radio" name="q7" value="c"> color</label>
+    </div>
 
-            <div id="result"></div>
+    <div class="question">
+        <p>8. Which JavaScript keyword declares a variable?</p>
+        <label><input type="radio" name="q8" value="a"> let</label>
+        <label><input type="radio" name="q8" value="b"> style</label>
+        <label><input type="radio" name="q8" value="c"> html</label>
+    </div>
 
-        </section>
+    <div class="question">
+        <p>9. Which HTML tag creates a paragraph?</p>
+        <label><input type="radio" name="q9" value="a"> &lt;p&gt;</label>
+        <label><input type="radio" name="q9" value="b"> &lt;para&gt;</label>
+        <label><input type="radio" name="q9" value="c"> &lt;text&gt;</label>
+    </div>
+
+    <div class="question">
+        <p>10. What is responsive web design?</p>
+        <label><input type="radio" name="q10" value="a"> A programming language</label>
+        <label><input type="radio" name="q10" value="b"> A database</label>
+        <label><input type="radio" name="q10" value="c"> Design that works on different screen sizes</label>
+    </div>
+
+    <button onclick="submitQuiz()">Submit Quiz</button>
+
+    <div id="result"></div>
+
+</section>
 
     </main>
 
 
+
     <!-- Footer -->
     <footer>
-        <p>© 2026 CAPACITY CONNECT | Digital Learning Portal</p>
+
+        <p>
+            © 2026 CAPACITY CONNECT | Digital Learning Portal
+        </p>
+
     </footer>
+
 
 
     <!-- Quiz JavaScript -->
     <script>
-    function checkAnswer() {
 
-        const answer = document.querySelector(
-            'input[name="answer"]:checked'
-        );
+        function checkAnswer() {
 
-        const result = document.getElementById("result");
+            const answers = {
 
-        if (!answer) {
-            result.innerText = "Please select an answer.";
-            result.style.color = "red";
-            return;
+                q1: "a",
+                q2: "b",
+                q3: "b",
+                q4: "c",
+                q5: "a",
+                q6: "b",
+                q7: "b",
+                q8: "a",
+                q9: "b",
+                q10: "c"
+
+            };
+
+
+            let score = 0;
+            let attempted = 0;
+
+
+            for (let question in answers) {
+
+                const selected = document.querySelector(
+                    'input[name="' + question + '"]:checked'
+                );
+
+
+                if (selected) {
+
+                    attempted++;
+
+
+                    if (selected.value === answers[question]) {
+
+                        score++;
+
+                    }
+
+                }
+
+            }
+
+
+            const result = document.getElementById("result");
+
+
+            /* Check all questions */
+
+            if (attempted < 10) {
+
+                result.innerText =
+                    "⚠️ Please answer all 10 questions. You answered "
+                    + attempted + "/10.";
+
+                result.style.color = "red";
+
+                return;
+
+            }
+
+
+            /* Calculate percentage */
+
+            const percentage = score * 10;
+
+
+            /* Save progress */
+
+            localStorage.setItem(
+                "webProgress",
+                percentage
+            );
+
+
+            /* Display result */
+
+            if (percentage >= 50) {
+
+                result.innerText =
+                    "🎉 Quiz Completed! Score: "
+                    + score + "/10 ("
+                    + percentage + "%)";
+
+                result.style.color = "green";
+
+            } else {
+
+                result.innerText =
+                    "❌ Quiz Completed! Score: "
+                    + score + "/10 ("
+                    + percentage + "%). Try Again!";
+
+                result.style.color = "red";
+
+            }
+
         }
 
-        if (answer.value === "b") {
-            result.innerText = "Correct Answer! 🎉 Score: 100%";
-            result.style.color = "green";
+    </script>
 
-            localStorage.setItem("webProgress", "100");
-
-        } else {
-            result.innerText = "Wrong Answer. Try again!";
-            result.style.color = "red";
-
-            localStorage.setItem("webProgress", "0");
-        }
-    }
-</script>
 </body>
+
 </html>
